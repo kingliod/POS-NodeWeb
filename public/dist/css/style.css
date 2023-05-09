@@ -5103,6 +5103,7 @@ input[type="submit"].btn-block {
   background-clip: border-box;
   border: 0px solid transparent;
   border-radius: 0px;
+  padding: 1rem;
 }
 .card > hr {
   margin-right: 0;
