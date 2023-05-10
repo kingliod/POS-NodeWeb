@@ -244,6 +244,7 @@ button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }
+
 button,
 input,
 optgroup,
@@ -5103,6 +5104,7 @@ input[type="submit"].btn-block {
   background-clip: border-box;
   border: 0px solid transparent;
   border-radius: 0px;
+  padding: 1rem;
 }
 .card > hr {
   margin-right: 0;
@@ -10825,7 +10827,8 @@ html[dir="ltr"] body .p-l-0 {
 }
 #main-wrapper .left-sidebar[data-sidebarbg="skin5"],
 #main-wrapper .left-sidebar[data-sidebarbg="skin5"] ul {
-  background: #1f262d;
+  /* background: #1f262d; */
+  background: #537188;
 }
 #main-wrapper .left-sidebar[data-sidebarbg="skin5"] .create-btn,
 #main-wrapper .left-sidebar[data-sidebarbg="skin5"] ul .create-btn {

@@ -313,6 +313,19 @@ button:focus {
   outline: dotted 1px;
   outline: -webkit-focus-ring-color auto 5px;
 }
+
+select {
+  color: gray;
+}
+
+select:focus {
+  color: white;
+}
+
+option:not(:first-of-type) {
+  color: black;
+}
+
 button,
 input,
 optgroup,
