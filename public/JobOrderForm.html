@@ -71,7 +71,7 @@
       <!-- ============================================================== -->
       <!-- Topbar header - style you can find in pages.scss -->
       <!-- ============================================================== -->
-      <header class="topbar" data-navbarbg="skin5" style="background: #2b3a55">
+      <!-- <header class="topbar" data-navbarbg="skin5" style="background: #2b3a55">
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
           <div class="navbar-header" data-logobg="skin5">
             <a
@@ -80,13 +80,11 @@
               ><i class="ti-menu ti-close"></i
             ></a>
           </div>
-          <!-- ============================================================== -->
-          <!-- End Logo -->
-          <!-- ============================================================== -->
+
           <div
             class="navbar-collapse collapse"
-            id="navbarSupportedContent"
             data-navbarbg="skin5"
+            style="background: #212a3e"
           >
             <ul class="navbar-nav float-start me-auto"></ul>
 
@@ -139,13 +137,10 @@
                   </div>
                 </ul>
               </li>
-              <!-- ============================================================== -->
-              <!-- User profile and search -->
-              <!-- ============================================================== -->
             </ul>
           </div>
         </nav>
-      </header>
+      </header> -->
 
       <aside
         class="left-sidebar"
@@ -261,14 +256,88 @@
       </aside>
 
       <div class="page-wrapper" style="height: 100vh; background: #212a3e">
+        <header
+          class="topbar"
+          data-navbarbg="skin5"
+          style="background: #212a3e"
+        >
+          <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <!-- <div class="navbar-header" data-logobg="skin5">
+              <a
+                class="nav-toggler waves-effect waves-light d-block d-md-none"
+                href="javascript:void(0)"
+                ><i class="ti-menu ti-close"></i
+              ></a>
+            </div> -->
+
+            <div
+              class="navbar-collapse collapse"
+              data-navbarbg="skin5"
+              style="background: #212a3e"
+            >
+              <ul class="navbar-nav float-start me-auto"></ul>
+
+              <ul class="navbar-nav float-end">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="../assets/images/users/1.jpg"
+                      alt="user"
+                      class="rounded-circle"
+                      width="31"
+                    />
+                  </a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-end user-dd animated"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-wallet me-1 ms-1"></i> My Balance</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-settings me-1 ms-1"></i> Account
+                      Setting</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <div class="ps-4 p-10">
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-sm btn-success btn-rounded text-white"
+                        >View Profile</a
+                      >
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
         <div class="container-fluid">
           <!-- <div class="row"> -->
           <!-- <div class="col-md-6"> -->
           <div
             class="card"
             style="
-              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+              /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19); */
               background: #2b3a55;
             "
           >
@@ -282,8 +351,18 @@
                 </h4>
               </div>
               <div style="display: flex; flex-direction: column">
-                <div style="display: flex">
-                  <div class="input-group" style="margin-bottom: 15px">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: auto;
+                  "
+                >
+                  <div
+                    class="input-group"
+                    style="display: flex; width: 300px; margin-bottom: 15px"
+                  >
                     <input
                       type="text"
                       class="form-control"
@@ -291,8 +370,9 @@
                       placeholder="DATE"
                       style="
                         background: transparent;
-                        border: 1px solid gray;
+                        border: 1px solid grey;
                         color: white;
+                        width: 70%;
                       "
                     />
                     <div class="input-group-append">
@@ -301,90 +381,95 @@
                       ></span>
                     </div>
                   </div>
-                  <!-- <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-lg-12">
+                  <div class="form-group row" style="width: 300px">
+                    <div class="col-md-9" style="width: 100%">
                       <input
-                        type="text"
-                        class="form-control"
-                        placeholder="CUSTOMER NAME"
                         style="
                           background: transparent;
-                          border: 1px solid gray;
-                          color: white;
+                          border: 1px solid grey;
+                          width: 100%;
+                          height: 40px;
                         "
-                      />
-                    </div>
-                  </div> -->
-                  <div class="form-group row">
-                    <div class="col-md-9">
-                      <input
-                        style="background: transparent; border: 1px solid gray"
                         type="text"
                         id="disabledTextInput"
                         class="form-control"
-                        placeholder="Disabled input"
+                        placeholder="CUSTOMER NAME:"
                         disabled
                       />
                     </div>
                   </div>
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-md-9">
-                      <select
-                        id="tech"
-                        style="
-                          width: 100%;
-                          height: 36px;
-                          background: transparent;
-                          border: 1px solid gray;
-                          /* color: gray; */
-                          padding: 5px;
-                        "
-                      >
-                        <option value="" disabled selected>TECHNICAL:</option>
-                        <option value="Ralph">RALPH</option>
-                        <option value="Genesis">GENESIS</option>
-                        <option value="Warren">WARREN</option>
-                      </select>
-                    </div>
+
+                  <!-- <div class="input-group" style="margin-bottom: 15px">
+                  </div> -->
+                  <div
+                    class="col-md-9"
+                    style="width: 300px; margin-bottom: 15px"
+                  >
+                    <select
+                      id="tech"
+                      style="
+                        width: 100%;
+                        height: 36px;
+                        background: transparent;
+                        border: 1px solid grey;
+                        /* color: gray; */
+                        padding: 5px;
+                      "
+                    >
+                      <option value="" disabled selected>TECHNICAL:</option>
+                      <option value="Ralph">RALPH</option>
+                      <option value="Genesis">GENESIS</option>
+                      <option value="Warren">WARREN</option>
+                    </select>
                   </div>
                 </div>
 
-                <div style="display: flex">
-                  <div class="form-group">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: auto;
+                  "
+                >
+                  <div class="form-group" style="width: 300px">
                     <input
                       style="
                         background: transparent;
-                        border: 1px solid gray;
+                        border: 1px solid grey;
                         color: white;
                         padding: 10px;
+                        width: 100%;
                       "
-                      type="tel"
+                      type="text"
                       placeholder="CONTACT PERSON"
-                      minlength="11"
-                      maxlength="11"
                     />
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" style="width: 300px">
                     <input
                       style="
                         background: transparent;
-                        border: 1px solid gray;
+                        border: 1px solid grey;
                         color: white;
                         padding: 10px;
+                        width: 100%;
                       "
                       type="number"
                       placeholder="TRANSPO"
                     />
                   </div>
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-md-9">
+                  <div
+                    class="input-group"
+                    style="margin-bottom: 15px; width: 300px"
+                  >
+                    <div class="col-md-9" style="width: 100%">
                       <select
                         id="status"
                         style="
                           width: 100%;
                           height: 36px;
                           background: transparent;
-                          border: 1px solid gray;
+                          border: 1px solid grey;
                           /* color: gray; */
                           padding: 5px;
                         "
@@ -397,9 +482,19 @@
                   </div>
                 </div>
 
-                <div style="display: flex">
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-lg-12">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: auto;
+                  "
+                >
+                  <div
+                    class="input-group"
+                    style="margin-bottom: 15px; width: 300px"
+                  >
+                    <div class="col-lg-12" style="width: 100%">
                       <textarea
                         class="form-control"
                         placeholder="REMARKS"
@@ -407,15 +502,19 @@
                         maxlength="255"
                         style="
                           background: transparent;
-                          border: 1px solid gray;
+                          border: 1px solid grey;
                           color: white;
+                          width: 100%;
                           resize: none;
                         "
                       ></textarea>
                     </div>
                   </div>
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-lg-12">
+                  <div
+                    class="input-group"
+                    style="margin-bottom: 15px; width: 300px"
+                  >
+                    <div class="col-lg-12" style="width: 100%">
                       <textarea
                         class="form-control"
                         placeholder="DELIVERY REMARKS"
@@ -423,16 +522,17 @@
                         maxlength="255"
                         style="
                           background: transparent;
-                          border: 1px solid gray;
+                          border: 1px solid grey;
                           color: white;
+                          width: 100%;
                           resize: none;
                         "
                       ></textarea>
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <div class="col-md-9">
-                      <div class="form-check mr-sm-2">
+                  <div class="form-group row" style="width: 300px">
+                    <div class="col-md-9" style="width: 100%">
+                      <div class="form-check mr-sm-2" style="width: 100%">
                         <input
                           type="checkbox"
                           class="form-check-input"
@@ -461,6 +561,66 @@
                     WORK ACTIVITY
                   </h4>
                 </div>
+
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    width: auto;
+                  "
+                >
+                  <div style="width: 520px; margin-right: 10px">
+                    <input
+                      style="
+                        background: transparent;
+                        border: 1px solid gray;
+                        color: white;
+                        padding: 10px;
+                        width: 100%;
+                      "
+                      type="text"
+                      placeholder="DESCRIPTION"
+                    />
+                  </div>
+                  <div style="width: 520px">
+                    <input
+                      style="
+                        background: transparent;
+                        border: 1px solid gray;
+                        color: white;
+                        padding: 10px;
+                        width: 100%;
+                      "
+                      type="text"
+                      placeholder="REMARKS"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: auto;
+                    margin-top: 20px;
+                    padding: 10px;
+                  "
+                >
+                  <div style="margin-right: 10px">
+                    <i
+                      class="me-2 mdi mdi-library-plus"
+                      style="font-size: 1.5rem"
+                    ></i>
+                  </div>
+                  <div style="margin-right: 25px">
+                    <i
+                      class="me-2 mdi mdi-delete"
+                      style="font-size: 1.5rem"
+                    ></i>
+                  </div>
+                </div>
               </div>
 
               <div
@@ -468,10 +628,11 @@
                   display: flex;
                   align-items: center;
                   justify-content: flex-end;
+                  margin-top: 40px;
                 "
               >
                 <div>
-                  <button type="submit" class="btn btn-success text-white">
+                  <button type="submit" class="btn btn-primary btn-lg">
                     Save
                   </button>
                 </div>
@@ -479,7 +640,7 @@
                   <button type="submit" class="btn btn-primary">Clear</button>
                 </div> -->
                 <div style="margin-left: 10px">
-                  <button type="submit" class="btn btn-danger text-white">
+                  <button type="submit" class="btn btn-secondary btn-lg">
                     Cancel
                   </button>
                 </div>
