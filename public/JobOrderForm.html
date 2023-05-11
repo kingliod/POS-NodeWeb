@@ -44,6 +44,15 @@
       href="../assets/libs/quill/dist/quill.snow.css"
     />
     <link href="../dist/css/style.min.css" rel="stylesheet" />
+    <style>
+      #description {
+        background: "transparent";
+        border: "1px solid gray";
+        color: "white";
+        padding: "10px";
+        width: "100%";
+      }
+    </style>
   </head>
 
   <body>
@@ -255,7 +264,10 @@
         <!-- End Sidebar scroll-->
       </aside>
 
-      <div class="page-wrapper" style="height: 100vh; background: #212a3e">
+      <div
+        class="page-wrapper"
+        style="height: 100vh; background: #212a3e; overflow: scroll"
+      >
         <header
           class="topbar"
           data-navbarbg="skin5"
@@ -355,15 +367,15 @@
                   style="
                     display: flex;
                     align-items: center;
-                    justify-content: space-around;
+                    justify-content: space-between;
                     width: auto;
+                    /* background-color: white; */
+                    margin: 10px;
+                    padding: 10px;
                   "
                 >
-                  <div
-                    class="input-group"
-                    style="display: flex; width: 300px; margin-bottom: 15px"
-                  >
-                    <input
+                  <div class="input-group" style="width: 300px">
+                    <!-- <input
                       type="text"
                       class="form-control"
                       id="datepicker-autoclose"
@@ -374,45 +386,60 @@
                         color: white;
                         width: 70%;
                       "
+                    /> -->
+                    <input
+                      id="jodate"
+                      name="workActivity[]"
+                      type="date"
+                      class="form-control"
+                      onfocus="(this.showPicker())"
+                      style="
+                        background: transparent;
+                        border: 1px solid grey;
+                        color: white;
+                        width: 70%;
+                        height: 43px;
+                      "
                     />
-                    <div class="input-group-append">
+                    <!-- <div
+                      class="input-group-append"
+                      style="border: 1px solid grey"
+                    >
                       <span class="input-group-text h-100"
                         ><i class="mdi mdi-calendar"></i
                       ></span>
-                    </div>
+                    </div> -->
                   </div>
-                  <div class="form-group row" style="width: 300px">
-                    <div class="col-md-9" style="width: 100%">
-                      <input
-                        style="
-                          background: transparent;
-                          border: 1px solid grey;
-                          width: 100%;
-                          height: 40px;
-                        "
-                        type="text"
-                        id="disabledTextInput"
-                        class="form-control"
-                        placeholder="CUSTOMER NAME:"
-                        disabled
-                      />
-                    </div>
+                  <div class="input-group" style="width: 300px">
+                    <!-- <div class="col-md-9" style="width: 100%">
+                      
+                    </div> -->
+                    <input
+                      style="
+                        background: transparent;
+                        border: 1px solid grey;
+                        width: 100%;
+                        height: 39px;
+                      "
+                      type="text"
+                      id="disabledTextInput"
+                      class="form-control"
+                      placeholder="CUSTOMER NAME:"
+                      disabled
+                    />
                   </div>
 
                   <!-- <div class="input-group" style="margin-bottom: 15px">
                   </div> -->
-                  <div
-                    class="col-md-9"
-                    style="width: 300px; margin-bottom: 15px"
-                  >
+                  <div class="col-md-9" style="width: 300px">
                     <select
-                      id="tech"
+                      id="technical"
+                      name="workActivity[]"
                       style="
                         width: 100%;
-                        height: 36px;
+                        height: 40px;
                         background: transparent;
                         border: 1px solid grey;
-                        /* color: gray; */
                         padding: 5px;
                       "
                     >
@@ -428,12 +455,17 @@
                   style="
                     display: flex;
                     align-items: center;
-                    justify-content: space-around;
+                    justify-content: space-between;
                     width: auto;
+                    /* background-color: white; */
+                    margin: 10px;
+                    padding: 10px;
                   "
                 >
                   <div class="form-group" style="width: 300px">
                     <input
+                      id="contactperson"
+                      name="workActivity[]"
                       style="
                         background: transparent;
                         border: 1px solid grey;
@@ -442,11 +474,14 @@
                         width: 100%;
                       "
                       type="text"
+                      class="joForm"
                       placeholder="CONTACT PERSON"
                     />
                   </div>
                   <div class="form-group" style="width: 300px">
                     <input
+                      id="transpo"
+                      name="workActivity[]"
                       style="
                         background: transparent;
                         border: 1px solid grey;
@@ -455,19 +490,19 @@
                         width: 100%;
                       "
                       type="number"
+                      class="joForm"
                       placeholder="TRANSPO"
                     />
                   </div>
-                  <div
-                    class="input-group"
-                    style="margin-bottom: 15px; width: 300px"
-                  >
+                  <div class="input-group" style="width: 300px">
                     <div class="col-md-9" style="width: 100%">
                       <select
                         id="status"
+                        name="workActivity[]"
+                        class="joForm"
                         style="
                           width: 100%;
-                          height: 36px;
+                          height: 43px;
                           background: transparent;
                           border: 1px solid grey;
                           /* color: gray; */
@@ -475,8 +510,8 @@
                         "
                       >
                         <option value="" disabled selected>STATUS:</option>
-                        <option value="Ralph">OPEN</option>
-                        <option value="Genesis">CLOSE</option>
+                        <option value="OPEN">OPEN</option>
+                        <option value="CLOSE">CLOSE</option>
                       </select>
                     </div>
                   </div>
@@ -486,16 +521,18 @@
                   style="
                     display: flex;
                     align-items: center;
-                    justify-content: space-around;
+                    justify-content: space-between;
                     width: auto;
+                    /* background-color: white; */
+                    margin: 10px;
+                    padding: 10px;
                   "
                 >
-                  <div
-                    class="input-group"
-                    style="margin-bottom: 15px; width: 300px"
-                  >
+                  <div class="input-group" style="width: 300px">
                     <div class="col-lg-12" style="width: 100%">
                       <textarea
+                        id="remarks"
+                        name="workActivity[]"
                         class="form-control"
                         placeholder="REMARKS"
                         rows="4"
@@ -512,10 +549,12 @@
                   </div>
                   <div
                     class="input-group"
-                    style="margin-bottom: 15px; width: 300px"
+                    style="margin-right: 17px; width: 300px"
                   >
                     <div class="col-lg-12" style="width: 100%">
                       <textarea
+                        id="deliveryrems"
+                        name="workActivity[]"
                         class="form-control"
                         placeholder="DELIVERY REMARKS"
                         rows="2"
@@ -530,13 +569,20 @@
                       ></textarea>
                     </div>
                   </div>
-                  <div class="form-group row" style="width: 300px">
+                  <div
+                    class="form-group row"
+                    style="width: 300px; /* background-color: wheat; */"
+                  >
                     <div class="col-md-9" style="width: 100%">
-                      <div class="form-check mr-sm-2" style="width: 100%">
+                      <div
+                        class="form-check mr-sm-2"
+                        style="width: 100%; padding: 5px"
+                      >
                         <input
                           type="checkbox"
                           class="form-check-input"
                           id="customControlAutosizing1"
+                          name="workActivity[]"
                         />
                         <label
                           class="form-check-label mb-0"
@@ -570,8 +616,10 @@
                     width: auto;
                   "
                 >
-                  <div style="width: 520px; margin-right: 10px">
+                  <div id="desc" style="width: 568px; margin-right: 10px">
                     <input
+                      id="description1"
+                      name="workAct[]"
                       style="
                         background: transparent;
                         border: 1px solid gray;
@@ -580,11 +628,14 @@
                         width: 100%;
                       "
                       type="text"
+                      class="joForm"
                       placeholder="DESCRIPTION"
                     />
                   </div>
-                  <div style="width: 520px">
+                  <div id="rems" style="width: 568px">
                     <input
+                      id="remarks1"
+                      name="workAct[]"
                       style="
                         background: transparent;
                         border: 1px solid gray;
@@ -593,6 +644,7 @@
                         width: 100%;
                       "
                       type="text"
+                      class="joForm"
                       placeholder="REMARKS"
                     />
                   </div>
@@ -612,12 +664,14 @@
                     <i
                       class="me-2 mdi mdi-library-plus"
                       style="font-size: 1.5rem"
+                      onclick="Add()"
                     ></i>
                   </div>
                   <div style="margin-right: 25px">
                     <i
                       class="me-2 mdi mdi-delete"
                       style="font-size: 1.5rem"
+                      onclick="Remove()"
                     ></i>
                   </div>
                 </div>
@@ -632,7 +686,11 @@
                 "
               >
                 <div>
-                  <button type="submit" class="btn btn-primary btn-lg">
+                  <button
+                    type="button"
+                    onClick="submitJO()"
+                    class="btn btn-primary btn-lg"
+                  >
                     Save
                   </button>
                 </div>
@@ -693,6 +751,157 @@
       var quill = new Quill("#editor", {
         theme: "snow",
       });
+
+      const containerdesc = document.getElementById("desc");
+      const containerrems = document.getElementById("rems");
+      var wa_id = 1;
+      let input;
+
+      function Add() {
+        input = document.createElement("input");
+        input.placeholder = "DESCRIPTION";
+        wa_id += 1;
+        input.id = "description" + wa_id;
+        input.type = "text";
+        input.className = "joForm";
+        input.name = "workAct[]";
+        containerdesc.appendChild(input);
+        input.style.cssText +=
+          "background: transparent; border: 1px solid gray; color: white; padding: 10px; width: 100%; margin-top: 20px";
+
+        let inputrems = document.createElement("input");
+        inputrems.placeholder = "REMARKS";
+        inputrems.id = "remarks" + wa_id;
+        inputrems.type = "text";
+        inputrems.className = "joForm";
+        inputrems.name = "workAct[]";
+        containerrems.appendChild(inputrems);
+        inputrems.style.cssText +=
+          "background: transparent; border: 1px solid gray; color: white; padding: 10px; width: 100%; margin-top: 20px";
+      }
+
+      function Remove() {
+        // alert("Removed!");
+        document.getElementById("description").remove();
+        document.getElementById("remarks").remove();
+      }
+
+      function submitJO() {
+        // const jodate = document.getElementById("jodate").value;
+        // const technical = document.getElementById("technical").value;
+        // const contactperson = document.getElementById("contactperson").value;
+        // const transpo = document.getElementById("transpo").value;
+        // const status = document.getElementById("status").value;
+        // const remarks = document.getElementById("remarks").value;
+        // const deliveryrems = document.getElementById("deliveryrems").value;
+        // var customControlAutosizing1 = document.getElementById(
+        //   "customControlAutosizing1"
+        // );
+        // const description1 = document.getElementById("description1").value;
+        // const remarks1 = document.getElementById("remarks1").value;
+
+        // if (customControlAutosizing1.checked) {
+        //   customControlAutosizing1 = "True";
+        //   console.log(customControlAutosizing1);
+        // } else {
+        //   customControlAutosizing1 = "False";
+        //   console.log(customControlAutosizing1);
+        // }
+
+        // alert(
+        //   "JOB ORDER VALUES\n" +
+        //     jodate +
+        //     technical +
+        //     contactperson +
+        //     transpo +
+        //     status +
+        //     remarks +
+        //     deliveryrems +
+        //     customControlAutosizing1 +
+        //     description1 +
+        //     remarks1 +
+        //     "\n" +
+        //     workActivity
+        // );
+
+        var k = "The respective values are :";
+
+        var inputs = document.getElementsByName("workAct[]");
+
+        for (var i = 0; i < inputs.length; i++) {
+          var a = inputs[i];
+          k = k + "array[" + i + "].value= " + a.value + ";\n";
+        }
+        console.log(k);
+
+        // var k2 = "The respective values are :";
+
+        // var inputs2 = document.getElementsByName("workActivity[][]");
+        // let b = [];
+        // let rows = inputs2.length / 2;
+        // let cols = 2;
+
+        // for (var i = 0; i < inputs2.length; i++) {
+        //   var a = inputs2[i];
+        //   for (let j = i; j < rows; j++) {
+        //     b[j] = [];
+        //     for (let d = 0; d < cols; d++) {
+        //       b[j][d] = a.value;
+        //     }
+        //   }
+        // }
+        // var isI = 0;
+        // for (let j = 0; j < rows; j++) {
+        //   b[j] = [];
+        //   for (let i = j + isI; i < inputs2.length; i++) {
+        //     var a = inputs2[i];
+        //     for (let d = i; d < cols; d++) {
+        //       b[j][d] = a.value;
+        //       break;
+        //     }
+        //     if (i % 2 == 0 && i != 0) {
+        //       break;
+        //     }
+        //   }
+        // }
+
+        // for (let j = 0; j < rows; j++) {
+        //   b[j] = [];
+        //   for (let d = j; d < cols; d++) {
+        //     for (let i = 0; i < inputs2.length; i++) {
+        //       var a = inputs2[i];
+        //       b[j][d] = a.value;
+        //       if (i % 2 == 0 && i != 0) {
+        //         break;
+        //       }
+        //     }
+        //   }
+        // }
+
+        // function listToMatrix(list, elementsPerSubArray) {
+        //   var matrix = [],
+        //     i,
+        //     k;
+
+        //   for (i = 0, k = -1; i < list.length; i++) {
+        //     if (i % elementsPerSubArray === 0) {
+        //       k++;
+        //       matrix[k] = [];
+        //     }
+
+        //     matrix[k].push(list[i]);
+        //   }
+
+        //   return matrix;
+        // }
+
+        // var matrix = listToMatrix(
+        //   document.getElementsByName("workActivity[][]"),
+        //   2
+        // );
+
+        // console.log(matrix);
+      }
     </script>
   </body>
 </html>
