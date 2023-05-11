@@ -33,6 +33,29 @@
       rel="stylesheet"
     />
     <link href="../dist/css/style.min.css" rel="stylesheet" />
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        height: 8vh;
+        border: none;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: none;
+        color: white;
+      }
+      tr {
+        border-bottom: 1px solid #717070;
+      }
+      tbody tr:last-child {
+        border-bottom: none;
+      }
+    </style>
   </head>
 
   <body style="background: #233044; color: rgb(178, 177, 177)">
@@ -173,7 +196,43 @@
         <div class="container-fluid" style="background: #1b2635">
           <div class="row">
             <div class="col-12">
-              <h3 style="text-indent: 1em">Job Order Listing</h3>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                "
+              >
+                <h3 style="text-indent: 1em">Job Order Listing</h3>
+                <div>
+                  <form action="" method="GET">
+                    <input
+                      type="text"
+                      id="search"
+                      name="q"
+                      style="
+                        padding: 5px;
+                        border-radius: 4px;
+                        background-color: transparent;
+                        border: 1px solid rgb(126, 125, 125);
+                      "
+                    />
+                    <button
+                      type="submit"
+                      style="
+                        padding: 5px;
+                        border-radius: 4px;
+                        background-color: #2255a4;
+                        color: white;
+                        border: none;
+                        width: 5vw;
+                      "
+                    >
+                      Search
+                    </button>
+                  </form>
+                </div>
+              </div>
               <div class="card" style="background: #233044">
                 <div class="card-body">
                   <!-- <h5 class="card-title">Basic Datatable</h5> -->
@@ -188,47 +247,24 @@
                       "
                     >
                       <div>
-                        <label for="colors" style="margin-right: 6px"
+                        <label for="colors" style="margin-right: 7px"
                           >Technical:</label
                         >
                         <select
                           name="colors"
                           style="
-                            width: 8.3vw;
+                            padding: 5px;
+                            border-radius: 4px;
+                            width: 9vw;
                             color: white;
                             background-color: transparent;
                             border: 1px solid rgb(120, 120, 120);
-                            text-indent: 3px;
                           "
                         >
                           <option value="ralph">Ralph</option>
                           <option value="joy">Joy</option>
                           <option value="genesis">Genesis</option>
                         </select>
-                      </div>
-                      <div>
-                        <form action="" method="GET">
-                          <input
-                            type="text"
-                            id="search"
-                            name="q"
-                            style="
-                              background-color: transparent;
-                              border: 1px solid rgb(154, 154, 154);
-                            "
-                          />
-                          <button
-                            type="submit"
-                            style="
-                              background-color: #2255a4;
-                              color: white;
-                              border: none;
-                              width: 5vw;
-                            "
-                          >
-                            Search
-                          </button>
-                        </form>
                       </div>
                     </div>
                     <!-- DATE PICKER -->
@@ -240,13 +276,16 @@
                         gap: 1vw;
                       "
                     >
-                      <div>
+                      <div style="width: 24vw">
                         <label for="date">Date Start:</label>
                         <input
                           type="date"
                           id="date"
                           name="date"
                           style="
+                            padding: 5px;
+                            border-radius: 4px;
+                            width: 9vw;
                             color: white;
                             background-color: transparent;
                             border: 1px solid rgb(120, 120, 120);
@@ -254,13 +293,16 @@
                           "
                         />
                       </div>
-                      <div>
+                      <div style="width: 25vw">
                         <label for="date">Date End:</label>
                         <input
                           type="date"
                           id="date"
                           name="date"
                           style="
+                            padding: 5px;
+                            border-radius: 4px;
+                            width: 9vw;
                             color: white;
                             background-color: transparent;
                             border: 1px solid rgb(120, 120, 120);
@@ -268,40 +310,64 @@
                           "
                         />
                       </div>
-                      <div style="display: flex; flex-direction: row">
-                        <button
-                          type="submit"
-                          class="btn btn-block btn-sm btn-info"
-                          style="width: 5vw; height: 3.5vh; margin-right: 5px"
-                          onclick="alert('Button clicked!')"
-                        >
-                          Filter
-                        </button>
-                        <button
-                          type="submit"
-                          class="btn btn-secondary btn-sm text-white"
-                          style="width: 5vw; height: 3.5vh"
-                          onclick="alert('Button clicked!')"
-                        >
-                          Reset
-                        </button>
+                      <div
+                        style="
+                          display: flex;
+                          justify-content: space-between;
+                          width: 100%;
+                        "
+                      >
+                        <div style="display: flex; flex-direction: row">
+                          <button
+                            type="submit"
+                            class="btn btn-block btn-sm btn-info"
+                            style="
+                              width: 5vw;
+                              height: 3.5vh;
+                              margin-right: 5px;
+                              padding: 5px;
+                              border-radius: 4px;
+                              height: 4.5vh;
+                            "
+                            onclick="alert('Button clicked!')"
+                          >
+                            Filter
+                          </button>
+                          <button
+                            type="submit"
+                            class="btn btn-secondary btn-sm text-white"
+                            style="
+                              width: 5vw;
+                              height: 3.5vh;
+                              padding: 5px;
+                              border-radius: 4px;
+                              height: 4.5vh;
+                            "
+                            onclick="alert('Button clicked!')"
+                          >
+                            Reset
+                          </button>
+                        </div>
+                        <div style="display: flex; justify-content: flex-end">
+                          <button
+                            type="submit"
+                            class="btn btn-block btn-sm btn-info"
+                            style="
+                              width: 5.9vw;
+                              height: 3.5vh;
+                              margin-bottom: 20px;
+                              padding: 5px;
+                              border-radius: 4px;
+                              height: 4.5vh;
+                            "
+                            onclick="alert('Button clicked!')"
+                          >
+                            + Add New
+                          </button>
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <button
-                        type="submit"
-                        class="btn btn-block btn-sm btn-info"
-                        style="
-                          width: 5.9vw;
-                          height: 3.5vh;
-                          margin-bottom: 20px;
-                          border-radius: 3px;
-                        "
-                        onclick="alert('Button clicked!')"
-                      >
-                        + Add New
-                      </button>
-                    </div>
+
                     <table style="border: none">
                       <thead>
                         <tr>
@@ -329,42 +395,10 @@
                                 background-color: transparent;
                                 border-color: rgb(117, 116, 116);
                               "
-                              >Previous</a
+                              >Prev</a
                             >
                           </li>
-                          <li class="page-item">
-                            <a
-                              class="page-link"
-                              href="#"
-                              style="
-                                background-color: transparent;
-                                border-color: rgb(117, 116, 116);
-                              "
-                              >1</a
-                            >
-                          </li>
-                          <li class="page-item active">
-                            <a
-                              class="page-link"
-                              href="#"
-                              style="
-                                border: 2px solid;
-                                border-color: rgb(149, 149, 149);
-                              "
-                              >2 <span class="sr-only">(current)</span></a
-                            >
-                          </li>
-                          <li class="page-item">
-                            <a
-                              class="page-link"
-                              href="#"
-                              style="
-                                background-color: transparent;
-                                border-color: rgb(117, 116, 116);
-                              "
-                              >3</a
-                            >
-                          </li>
+
                           <li class="page-item">
                             <a
                               class="page-link"
