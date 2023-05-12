@@ -44,6 +44,15 @@
       href="../assets/libs/quill/dist/quill.snow.css"
     />
     <link href="../dist/css/style.min.css" rel="stylesheet" />
+    <style>
+      #description {
+        background: "transparent";
+        border: "1px solid gray";
+        color: "white";
+        padding: "10px";
+        width: "100%";
+      }
+    </style>
   </head>
 
   <body>
@@ -71,7 +80,7 @@
       <!-- ============================================================== -->
       <!-- Topbar header - style you can find in pages.scss -->
       <!-- ============================================================== -->
-      <header class="topbar" data-navbarbg="skin5" style="background: #2b3a55">
+      <!-- <header class="topbar" data-navbarbg="skin5" style="background: #2b3a55">
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
           <div class="navbar-header" data-logobg="skin5">
             <a
@@ -80,13 +89,11 @@
               ><i class="ti-menu ti-close"></i
             ></a>
           </div>
-          <!-- ============================================================== -->
-          <!-- End Logo -->
-          <!-- ============================================================== -->
+
           <div
             class="navbar-collapse collapse"
-            id="navbarSupportedContent"
             data-navbarbg="skin5"
+            style="background: #212a3e"
           >
             <ul class="navbar-nav float-start me-auto"></ul>
 
@@ -139,13 +146,10 @@
                   </div>
                 </ul>
               </li>
-              <!-- ============================================================== -->
-              <!-- User profile and search -->
-              <!-- ============================================================== -->
             </ul>
           </div>
         </nav>
-      </header>
+      </header> -->
 
       <aside
         class="left-sidebar"
@@ -260,19 +264,96 @@
         <!-- End Sidebar scroll-->
       </aside>
 
-      <div class="page-wrapper" style="height: 100vh; background: #212a3e">
+      <div
+        class="page-wrapper"
+        style="height: 100vh; background: #212a3e; overflow: scroll"
+      >
+        <header
+          class="topbar"
+          data-navbarbg="skin5"
+          style="background: #212a3e"
+        >
+          <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <!-- <div class="navbar-header" data-logobg="skin5">
+              <a
+                class="nav-toggler waves-effect waves-light d-block d-md-none"
+                href="javascript:void(0)"
+                ><i class="ti-menu ti-close"></i
+              ></a>
+            </div> -->
+
+            <div
+              class="navbar-collapse collapse"
+              data-navbarbg="skin5"
+              style="background: #212a3e"
+            >
+              <ul class="navbar-nav float-start me-auto"></ul>
+
+              <ul class="navbar-nav float-end">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="../assets/images/users/1.jpg"
+                      alt="user"
+                      class="rounded-circle"
+                      width="31"
+                    />
+                  </a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-end user-dd animated"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-wallet me-1 ms-1"></i> My Balance</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-settings me-1 ms-1"></i> Account
+                      Setting</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <div class="ps-4 p-10">
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-sm btn-success btn-rounded text-white"
+                        >View Profile</a
+                      >
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
         <div class="container-fluid">
           <!-- <div class="row"> -->
           <!-- <div class="col-md-6"> -->
           <div
             class="card"
             style="
-              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+              /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19); */
               background: #2b3a55;
             "
           >
-            <form style="color: white; padding: 20px">
+            <form id="joForm" style="color: white; padding: 20px">
               <div class="card-body">
                 <h4
                   class="card-title"
@@ -282,161 +363,226 @@
                 </h4>
               </div>
               <div style="display: flex; flex-direction: column">
-                <div style="display: flex">
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <input
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: auto;
+                    /* background-color: white; */
+                    margin: 10px;
+                    padding: 10px;
+                  "
+                >
+                  <div class="input-group" style="width: 300px">
+                    <!-- <input
                       type="text"
                       class="form-control"
                       id="datepicker-autoclose"
                       placeholder="DATE"
                       style="
                         background: transparent;
-                        border: 1px solid gray;
+                        border: 1px solid grey;
                         color: white;
+                        width: 70%;
+                      "
+                    /> -->
+                    <input
+                      id="jodate"
+                      name="workActivity[]"
+                      type="date"
+                      class="form-control"
+                      onfocus="(this.showPicker())"
+                      style="
+                        background: transparent;
+                        border: 1px solid grey;
+                        color: white;
+                        width: 70%;
+                        height: 43px;
                       "
                     />
-                    <div class="input-group-append">
+                    <!-- <div
+                      class="input-group-append"
+                      style="border: 1px solid grey"
+                    >
                       <span class="input-group-text h-100"
                         ><i class="mdi mdi-calendar"></i
                       ></span>
-                    </div>
+                    </div> -->
                   </div>
+                  <div class="input-group" style="width: 300px">
+                    <!-- <div class="col-md-9" style="width: 100%">
+                      
+                    </div> -->
+                    <input
+                      style="
+                        background: transparent;
+                        border: 1px solid grey;
+                        width: 100%;
+                        height: 39px;
+                      "
+                      type="text"
+                      id="disabledTextInput"
+                      class="form-control"
+                      placeholder="CUSTOMER NAME:"
+                      disabled
+                    />
+                  </div>
+
                   <!-- <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-lg-12">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="CUSTOMER NAME"
-                        style="
-                          background: transparent;
-                          border: 1px solid gray;
-                          color: white;
-                        "
-                      />
-                    </div>
                   </div> -->
-                  <div class="form-group row">
-                    <div class="col-md-9">
-                      <input
-                        style="background: transparent; border: 1px solid gray"
-                        type="text"
-                        id="disabledTextInput"
-                        class="form-control"
-                        placeholder="Disabled input"
-                        disabled
-                      />
-                    </div>
-                  </div>
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-md-9">
-                      <select
-                        id="tech"
-                        style="
-                          width: 100%;
-                          height: 36px;
-                          background: transparent;
-                          border: 1px solid gray;
-                          /* color: gray; */
-                          padding: 5px;
-                        "
-                      >
-                        <option value="" disabled selected>TECHNICAL:</option>
-                        <option value="Ralph">RALPH</option>
-                        <option value="Genesis">GENESIS</option>
-                        <option value="Warren">WARREN</option>
-                      </select>
-                    </div>
+                  <div class="col-md-9" style="width: 300px">
+                    <select
+                      id="technical"
+                      name="workActivity[]"
+                      style="
+                        width: 100%;
+                        height: 40px;
+                        background: transparent;
+                        border: 1px solid grey;
+                        padding: 5px;
+                      "
+                    >
+                      <option value="" disabled selected>TECHNICAL:</option>
+                      <option value="Ralph">RALPH</option>
+                      <option value="Genesis">GENESIS</option>
+                      <option value="Warren">WARREN</option>
+                    </select>
                   </div>
                 </div>
 
-                <div style="display: flex">
-                  <div class="form-group">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: auto;
+                    /* background-color: white; */
+                    margin: 10px;
+                    padding: 10px;
+                  "
+                >
+                  <div class="form-group" style="width: 300px">
                     <input
+                      id="contactperson"
+                      name="workActivity[]"
                       style="
                         background: transparent;
-                        border: 1px solid gray;
+                        border: 1px solid grey;
                         color: white;
                         padding: 10px;
+                        width: 100%;
                       "
-                      type="tel"
+                      type="text"
+                      class="joForm"
                       placeholder="CONTACT PERSON"
-                      minlength="11"
-                      maxlength="11"
                     />
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" style="width: 300px">
                     <input
+                      id="transpo"
+                      name="workActivity[]"
                       style="
                         background: transparent;
-                        border: 1px solid gray;
+                        border: 1px solid grey;
                         color: white;
                         padding: 10px;
+                        width: 100%;
                       "
                       type="number"
+                      class="joForm"
                       placeholder="TRANSPO"
                     />
                   </div>
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-md-9">
+                  <div class="input-group" style="width: 300px">
+                    <div class="col-md-9" style="width: 100%">
                       <select
                         id="status"
+                        name="workActivity[]"
+                        class="joForm"
                         style="
                           width: 100%;
-                          height: 36px;
+                          height: 43px;
                           background: transparent;
-                          border: 1px solid gray;
+                          border: 1px solid grey;
                           /* color: gray; */
                           padding: 5px;
                         "
                       >
                         <option value="" disabled selected>STATUS:</option>
-                        <option value="Ralph">OPEN</option>
-                        <option value="Genesis">CLOSE</option>
+                        <option value="OPEN">OPEN</option>
+                        <option value="CLOSE">CLOSE</option>
                       </select>
                     </div>
                   </div>
                 </div>
 
-                <div style="display: flex">
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-lg-12">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: auto;
+                    /* background-color: white; */
+                    margin: 10px;
+                    padding: 10px;
+                  "
+                >
+                  <div class="input-group" style="width: 300px">
+                    <div class="col-lg-12" style="width: 100%">
                       <textarea
+                        id="remarks"
+                        name="workActivity[]"
                         class="form-control"
                         placeholder="REMARKS"
                         rows="4"
                         maxlength="255"
                         style="
                           background: transparent;
-                          border: 1px solid gray;
+                          border: 1px solid grey;
                           color: white;
+                          width: 100%;
                           resize: none;
                         "
                       ></textarea>
                     </div>
                   </div>
-                  <div class="input-group" style="margin-bottom: 15px">
-                    <div class="col-lg-12">
+                  <div
+                    class="input-group"
+                    style="margin-right: 17px; width: 300px"
+                  >
+                    <div class="col-lg-12" style="width: 100%">
                       <textarea
+                        id="deliveryrems"
+                        name="workActivity[]"
                         class="form-control"
                         placeholder="DELIVERY REMARKS"
                         rows="2"
                         maxlength="255"
                         style="
                           background: transparent;
-                          border: 1px solid gray;
+                          border: 1px solid grey;
                           color: white;
+                          width: 100%;
                           resize: none;
                         "
                       ></textarea>
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <div class="col-md-9">
-                      <div class="form-check mr-sm-2">
+                  <div
+                    class="form-group row"
+                    style="width: 300px; /* background-color: wheat; */"
+                  >
+                    <div class="col-md-9" style="width: 100%">
+                      <div
+                        class="form-check mr-sm-2"
+                        style="width: 100%; padding: 5px"
+                      >
                         <input
                           type="checkbox"
                           class="form-check-input"
                           id="customControlAutosizing1"
+                          name="workActivity[]"
                         />
                         <label
                           class="form-check-label mb-0"
@@ -461,6 +607,74 @@
                     WORK ACTIVITY
                   </h4>
                 </div>
+
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    width: auto;
+                  "
+                >
+                  <div id="desc" style="width: 568px; margin-right: 10px">
+                    <input
+                      id="description0"
+                      name="workActD[]"
+                      style="
+                        background: transparent;
+                        border: 1px solid gray;
+                        color: white;
+                        padding: 10px;
+                        width: 100%;
+                      "
+                      type="text"
+                      class="joForm"
+                      placeholder="DESCRIPTION"
+                    />
+                  </div>
+                  <div id="rems" style="width: 568px">
+                    <input
+                      id="waremarks0"
+                      name="workActR[]"
+                      style="
+                        background: transparent;
+                        border: 1px solid gray;
+                        color: white;
+                        padding: 10px;
+                        width: 100%;
+                      "
+                      type="text"
+                      class="joForm"
+                      placeholder="REMARKS"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: auto;
+                    margin-top: 20px;
+                    padding: 10px;
+                  "
+                >
+                  <div style="margin-right: 10px">
+                    <i
+                      class="me-2 mdi mdi-library-plus"
+                      style="font-size: 1.5rem"
+                      onclick="Add()"
+                    ></i>
+                  </div>
+                  <div style="margin-right: 25px">
+                    <i
+                      class="me-2 mdi mdi-delete"
+                      style="font-size: 1.5rem"
+                      onclick="Remove()"
+                    ></i>
+                  </div>
+                </div>
               </div>
 
               <div
@@ -468,10 +682,15 @@
                   display: flex;
                   align-items: center;
                   justify-content: flex-end;
+                  margin-top: 40px;
                 "
               >
                 <div>
-                  <button type="submit" class="btn btn-success text-white">
+                  <button
+                    type="button"
+                    onClick="submitJO()"
+                    class="btn btn-primary btn-lg"
+                  >
                     Save
                   </button>
                 </div>
@@ -479,7 +698,7 @@
                   <button type="submit" class="btn btn-primary">Clear</button>
                 </div> -->
                 <div style="margin-left: 10px">
-                  <button type="submit" class="btn btn-danger text-white">
+                  <button type="submit" class="btn btn-secondary btn-lg">
                     Cancel
                   </button>
                 </div>
@@ -532,6 +751,96 @@
       var quill = new Quill("#editor", {
         theme: "snow",
       });
+
+      const containerdesc = document.getElementById("desc");
+      const containerrems = document.getElementById("rems");
+      var wa_id = 0;
+      let input;
+      var workAD = document.getElementsByName("workActD[]");
+      var workAR = document.getElementsByName("workActR[]");
+
+      function Add() {
+        input = document.createElement("input");
+        input.placeholder = "DESCRIPTION";
+        wa_id += 1;
+        input.id = "description" + wa_id;
+        input.type = "text";
+        input.className = "joForm";
+        input.name = "workActD[]";
+        containerdesc.appendChild(input);
+        input.style.cssText +=
+          "background: transparent; border: 1px solid gray; color: white; padding: 10px; width: 100%; margin-top: 20px";
+
+        let inputrems = document.createElement("input");
+        inputrems.placeholder = "REMARKS";
+        inputrems.id = "waremarks" + wa_id;
+        inputrems.type = "text";
+        inputrems.className = "joForm";
+        inputrems.name = "workActR[]";
+        containerrems.appendChild(inputrems);
+        inputrems.style.cssText +=
+          "background: transparent; border: 1px solid gray; color: white; padding: 10px; width: 100%; margin-top: 20px";
+      }
+
+      function Remove() {
+        let i = 0;
+
+        while (workAD.length != 0) {
+          if (i == workAD.length - 1) {
+            document.getElementsByName("workActD[]")[i].remove();
+            document.getElementsByName("workActR[]")[i].remove();
+            console.log("Length: " + workAD.length);
+            break;
+          }
+          i++;
+        }
+      }
+
+      function submitJO() {
+        var joInputs = document.getElementsByName("workActivity[]");
+        let b = [];
+        var checkbox = document.getElementById("customControlAutosizing1");
+
+        if (checkbox.checked) {
+          document.getElementById("customControlAutosizing1").value = "True";
+        } else {
+          document.getElementById("customControlAutosizing1").value = "False";
+        }
+
+        var joVal = "JOB ORDER VALUES\n";
+
+        for (var i = 0; i < joInputs.length; i++) {
+          var a = joInputs[i];
+          console.log(a.value + "\n");
+          alert(a.value + "\n");
+        }
+
+        for (var i = 0; i < workAD.length; i++) {
+          b[i] = [];
+          for (var j = 0; j < workAR.length; j++) {
+            b[i][j] = workAD[i].value;
+            b[i][j + 1] = workAR[i].value;
+            alert(b[i][j] + " - " + b[i][j + 1] + "\n");
+            break;
+          }
+        }
+        console.log(b);
+
+        const form = document.getElementById("joForm");
+        form.reset();
+
+        let z = 0;
+
+        while (workAD.length != 0) {
+          if (z != 0) {
+            document.getElementsByName("workActD[]")[z].remove();
+            document.getElementsByName("workActR[]")[z].remove();
+            console.log("Length: " + workAD.length);
+            break;
+          }
+          z++;
+        }
+      }
     </script>
   </body>
 </html>

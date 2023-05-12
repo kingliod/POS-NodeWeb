@@ -1700,10 +1700,19 @@ progress {
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
 }
+
 .form-control::placeholder {
-  color: #6c757d;
+  /* color: #6c757d; */
+  color: #b7b7b7;
   opacity: 1;
 }
+
+.joForm::placeholder {
+  /* color: #6c757d; */
+  color: #b7b7b7;
+  opacity: 1;
+}
+
 .form-control:disabled,
 .form-control[readonly] {
   background-color: #e9ecef;
@@ -9098,6 +9107,11 @@ html[dir="ltr"] body .p-l-0 {
   background: #eeeeee;
   position: relative;
 }
+
+.page-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .page-wrapper > .container-fluid,
 .page-wrapper > .container-lg,
 .page-wrapper > .container-md,
