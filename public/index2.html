@@ -74,6 +74,7 @@
         background-color: #212a3e;
         border: none;
         border-radius: 5px;
+        border: 0.5px solid rgba(111, 109, 109, 0.464);
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.159);
       }
 
@@ -89,7 +90,7 @@
         background-color: #9c4a44;
         color: #fff;
         border: none;
-        padding: 10px;
+        padding: 7px;
         border-radius: 5px;
         font-size: 16px;
         cursor: pointer;
@@ -254,17 +255,25 @@
                 <div class="card-body">
                   <!-- <h5 class="card-title">Basic Datatable</h5> -->
                   <div class="table-responsive" style="display: flex">
-                    <button id="open-dialog">Open Dialog</button>
+                    <button id="open-dialog">Add New</button>
 
                     <dialog id="my-dialog">
-                      <p>This is my dialog box!</p>
-                      <div style="display: flex">
+                      <p style="color: white">ADD CUSTOMER</p>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: row;
+                          gap: 1vw;
+                          margin-bottom: 1.5vh;
+                        "
+                      >
                         <input
                           type="text"
-                          class="form-control"
-                          id="datepicker-autoclose"
-                          placeholder="DATE"
+                          placeholder="Date"
                           style="
+                            width: 20vw;
+                            padding: 8px;
+                            border-radius: 4px;
                             background: transparent;
                             border: 1px solid gray;
                             color: white;
@@ -272,10 +281,11 @@
                         />
                         <input
                           type="text"
-                          class="form-control"
-                          id="datepicker-autoclose"
-                          placeholder="DATE"
+                          placeholder="Customer"
                           style="
+                            width: 20vw;
+                            padding: 8px;
+                            border-radius: 4px;
                             background: transparent;
                             border: 1px solid gray;
                             color: white;
@@ -283,10 +293,66 @@
                         />
                         <input
                           type="text"
-                          class="form-control"
-                          id="datepicker-autoclose"
-                          placeholder="DATE"
+                          placeholder="Pullout by::"
                           style="
+                            width: 20vw;
+                            padding: 8px;
+                            border-radius: 4px;
+                            background: transparent;
+                            border: 1px solid gray;
+                            color: white;
+                          "
+                        />
+                      </div>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: row;
+                          gap: 1vw;
+                          margin-bottom: 1.5vh;
+                        "
+                      >
+                        <input
+                          type="text"
+                          placeholder="Problem"
+                          style="
+                            width: 30vw;
+                            padding: 8px;
+                            border-radius: 4px;
+                            background: transparent;
+                            border: 1px solid gray;
+                            color: white;
+                          "
+                        />
+                        <input
+                          type="text"
+                          placeholder="Action"
+                          style="
+                            width: 31vw;
+                            padding: 8px;
+                            border-radius: 4px;
+                            background: transparent;
+                            border: 1px solid gray;
+                            color: white;
+                          "
+                        />
+                      </div>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: row;
+                          gap: 1vw;
+                          margin-bottom: 2vh;
+                        "
+                      >
+                        <input
+                          type="text"
+                          placeholder="Recommendation"
+                          style="
+                            width: 62vw;
+                            height: 15vh;
+                            padding: 8px;
+                            border-radius: 4px;
                             background: transparent;
                             border: 1px solid gray;
                             color: white;
