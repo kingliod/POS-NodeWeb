@@ -3,6 +3,8 @@ const sql = require("mssql/msnodesqlv8");
 //msnodesqlv8
 const path = require("path");
 
+const bcrypt = require("bcrypt");
+
 const { userLoggedIn } = require("./public/loggedinState.js");
 
 const app = express();
@@ -49,18 +51,54 @@ const configPO = {
   },
 };
 
+// Function to hash the password
+const hashPassword = async (password) => {
+  try {
+    // Generate a salt
+    const salt = await bcrypt.genSalt(10);
+    // const saltRounds = 10;
+
+    // Hash the password using the salt
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Return the hashed password
+    return hashedPassword;
+  } catch (error) {
+    console.error("Error hashing password:", error);
+    throw error;
+  }
+};
+
+// const getHashPassword = async (usern) => {
+//   fetch("/getUserCredentials")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       data.forEach((row) => {
+//         if (usern == row.username) {
+//           return row.password;
+//         }
+//       });
+//     })
+//     .catch((error) => console.error(error));
+// };
+
 // Handle POST request to save form data
 app.post("/saveUserCredentials", async (req, res) => {
   try {
     const pool = await sql.connect(configJO);
 
+    // const saltRounds = 10;
+
     const { username, password, createdAt, updatedAt, email } = req.body;
 
     console.log("Received data: ", req.body);
 
+    // Hash the password
+    const hashedPassword = await hashPassword(password);
+
     const request = pool.request();
     request.input("username", sql.VarChar, username);
-    request.input("password", sql.VarChar, password);
+    request.input("password", sql.VarChar, hashedPassword);
     request.input("createdAt", sql.VarChar, createdAt);
     request.input("updatedAt", sql.VarChar, updatedAt);
     request.input("email", sql.VarChar, email);
@@ -101,18 +139,40 @@ app.post("/saveUserCredentials", async (req, res) => {
 
 app.post("/saveUserLoggedInData", async (req, res) => {
   try {
+    const pool = await sql.connect(configJO);
+
     const { userID, uname, passw, logState } = req.body;
 
     console.log("Received data: ", req.body);
 
-    userLoggedIn.userId = userID;
-    userLoggedIn.username = uname;
-    userLoggedIn.password = passw;
-    userLoggedIn.loginState = logState;
+    const getPassword = sql.query(
+      `select password from [jo].[dbo].[users] where username = ${uname}`
+    );
 
-    console.log("Logged In!\n");
-    console.log("Log in Details:\n" + JSON.stringify(userLoggedIn));
-    res.json(req.body);
+    bcrypt.compare(passw, getPassword, function (err, isMatch) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+
+      if (isMatch) {
+        // Passwords match
+        console.log("Password is correct");
+        userLoggedIn.userId = userID;
+        userLoggedIn.username = uname;
+        userLoggedIn.password = row.password;
+        userLoggedIn.loginState = logState;
+
+        console.log("Logged In!\n");
+        console.log("Log in Details:\n" + JSON.stringify(userLoggedIn));
+        res.json(req.body);
+        // Continue with appropriate actions
+      } else {
+        // Passwords do not match
+        console.log("Password is incorrect");
+        // Handle invalid password
+      }
+    });
   } catch (error) {
     console.error("Error saving Users data:", error);
     res.sendStatus(500);
@@ -357,6 +417,8 @@ app.get("/getUserCredentials", async (req, res) => {
       }
     }
 
+    console.log(combinedArray);
+
     res.json(combinedArray);
   } catch (error) {
     console.error(error);
@@ -517,4 +579,6 @@ app.get("/getEmployeeListing", async (req, res) => {
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  const user = "therock";
+  console.log(getHashPassword(user));
 });

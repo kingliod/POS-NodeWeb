@@ -418,6 +418,33 @@
         });
       });
 
+      async function hashPassword(password) {
+        try {
+          const encoder = new TextEncoder();
+
+          // Convert the password to a Uint8Array
+          const data = encoder.encode(password);
+
+          // Generate the hash using the SubtleCrypto API
+          const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+
+          // Convert the hash buffer to a hexadecimal string
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          const hashedPassword = hashArray
+            .map((byte) => byte.toString(10).padStart(2, "0"))
+            .join("");
+
+          // Create the final formatted password string
+          const formattedPassword = `$2a$10$${hashedPassword}`;
+
+          // Return the formatted password
+          return formattedPassword;
+        } catch (error) {
+          console.error("Error hashing password:", error);
+          throw error;
+        }
+      }
+
       $("#login").click(function () {
         if ($("#loginForm")[0].checkValidity()) {
           fetch("/getUserCredentials")
@@ -426,11 +453,9 @@
               var isLoggedIn = false;
 
               data.forEach((row) => {
-                if (
-                  $("#username").val() == row.username &&
-                  $("#password").val() == row.password
-                ) {
+                if ($("#username").val() == row.username) {
                   isLoggedIn = true;
+
                   // Get form data
                   var userLoggedInData = {
                     userID: row.id,
