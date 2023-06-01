@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="keywords"
+      content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"
+    />
+    <meta
+      name="description"
+      content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
+    />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>POS Portal Signup Page</title>
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/images/favicon.png"
+    />
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link href="../dist/css/style.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      #togglePassword {
+        /* margin-left: -50px; */
+        cursor: pointer;
+        color: black;
+        font-size: 20px;
+      }
+      #toggleconfirmPassword {
+        /* margin-left: -50px; */
+        cursor: pointer;
+        color: black;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body style="height: 100vh; width: 100vw">
+    <div
+      class="main-wrapper bg-dark"
+      style="
+        margin: auto;
+        padding: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <!-- ============================================================== -->
+      <!-- Preloader - style you can find in spinners.css -->
+      <!-- ============================================================== -->
+      <div class="preloader">
+        <div class="lds-ripple">
+          <div class="lds-pos"></div>
+          <div class="lds-pos"></div>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- Preloader - style you can find in spinners.css -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Login box.scss -->
+      <!-- ============================================================== -->
+      <!-- d-flex -->
+      <!-- class="auth-wrapper no-block justify-content-center align-items-center bg-dark" -->
+      <div style="width: 20%; margin: auto">
+        <div class="text-center pt-3 pb-3">
+          <span class="db"
+            ><img src="../assets/images/logo.png" alt="logo" />
+          </span>
+        </div>
+        <div class="auth-box bg-dark border-top border-secondary">
+          <div>
+            <!-- <div class="text-center pt-3 pb-3">
+              <span class="db"
+                ><img src="../assets/images/logo.png" alt="logo" />
+              </span>
+            </div> -->
+            <div class="text-center pt-3 pb-3">
+              <h1
+                style="
+                  color: darkgray;
+                  letter-spacing: 3px;
+                  font-family: 'Courier New', Courier, monospace;
+                "
+              >
+                SIGNUP
+              </h1>
+            </div>
+            <!-- Form -->
+            <form id="signupForm" class="form-horizontal mt-3">
+              <div class="row pb-4">
+                <div class="col-12">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text bg-success text-white h-100"
+                        id="basic-addon1"
+                        ><i class="mdi mdi-account fs-4"></i
+                      ></span>
+                    </div>
+                    <input
+                      id="username"
+                      type="text"
+                      class="form-control form-control-lg"
+                      placeholder="Username"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                      required
+                    />
+                  </div>
+                  <!-- email -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text bg-danger text-white h-100"
+                        id="basic-addon1"
+                        ><i class="mdi mdi-email fs-4"></i
+                      ></span>
+                    </div>
+                    <input
+                      id="email"
+                      type="email"
+                      class="form-control form-control-lg"
+                      placeholder="Email Address"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                      required
+                    />
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text bg-warning text-white h-100"
+                        id="basic-addon2"
+                        ><i class="mdi mdi-lock fs-4"></i
+                      ></span>
+                    </div>
+                    <input
+                      id="password"
+                      type="password"
+                      class="form-control form-control-lg"
+                      placeholder="Password"
+                      aria-label="Password"
+                      aria-describedby="basic-addon1"
+                      required
+                    />
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"
+                        ><i
+                          class="bi bi-eye-slash"
+                          id="togglePassword"
+                          onclick="clearInterval(myVar)"
+                        ></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text bg-info text-white h-100"
+                        id="basic-addon2"
+                        ><i class="mdi mdi-lock fs-4"></i
+                      ></span>
+                    </div>
+                    <input
+                      id="confirmPassword"
+                      type="password"
+                      class="form-control form-control-lg"
+                      placeholder=" Confirm Password"
+                      aria-label="Password"
+                      aria-describedby="basic-addon1"
+                      required
+                    />
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"
+                        ><i
+                          class="bi bi-eye-slash"
+                          id="toggleconfirmPassword"
+                        ></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- class="row border-top border-secondary" -->
+              <!-- <div style="width: 100%"></div> -->
+              <!-- <div class="col-12"></div> -->
+              <!-- <div class="form-group" style="width: 100%"></div> -->
+              <div style="display: flex">
+                <div style="width: 100%; margin-right: 20px">
+                  <!-- class="btn btn-lg btn-info" -->
+                  <button
+                    id="signup"
+                    style="width: 100%"
+                    class="btn btn-success btn-lg float-end text-white"
+                    type="button"
+                  >
+                    Sign Up
+                  </button>
+                </div>
+                <div style="width: 100%">
+                  <button
+                    style="width: 100%"
+                    class="btn btn-lg btn-info"
+                    type="button"
+                    onclick="cancel()"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- Login box.scss -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Page wrapper scss in scafholding.scss -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Page wrapper scss in scafholding.scss -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Right Sidebar -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Right Sidebar -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- All Required js -->
+    <!-- ============================================================== -->
+    <!-- section-success -->
+    <div id="success" class="wrapper-success">
+      <div class="card">
+        <div class="icon"><i class="fas fa-check-circle"></i></div>
+        <div class="subject">
+          <h3>Success!</h3>
+          <p id="popup-description">Successfully signed up!</p>
+        </div>
+      </div>
+    </div>
+    <!-- section-error -->
+    <div id="error" class="wrapper-error">
+      <div class="card">
+        <div class="icon"><i class="fas fa-exclamation-circle"></i></div>
+        <div class="subject">
+          <h3>Warning!</h3>
+          <p id="popup-warning-desc">Please fill up the missing fields!</p>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugin js -->
+    <!-- ============================================================== -->
+    <script>
+      $(".preloader").fadeOut();
+
+      const togglePassword = document.querySelector("#togglePassword");
+      const password = document.querySelector("#password");
+
+      togglePassword.addEventListener("click", function () {
+        const type =
+          password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+
+        this.classList.toggle("bi-eye");
+      });
+
+      const toggleCP = document.querySelector("#toggleconfirmPassword");
+      const confPass = document.querySelector("#confirmPassword");
+
+      toggleCP.addEventListener("click", function () {
+        const type =
+          confPass.getAttribute("type") === "password" ? "text" : "password";
+        confPass.setAttribute("type", type);
+
+        this.classList.toggle("bi-eye");
+      });
+
+      const inputFields = document.querySelectorAll("input");
+
+      Array.from(inputFields).forEach((input) => {
+        input.addEventListener("keypress", (event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("signup").click();
+          }
+        });
+      });
+
+      $("#signup").click(function () {
+        if ($("#signupForm")[0].checkValidity()) {
+          if ($("#password").val() == $("#confirmPassword").val()) {
+            const createdDate = new Date();
+
+            // Get form data
+            var signupData = {
+              username: $("#username").val(),
+              email: $("#email").val(),
+              password: $("#password").val(),
+              createdAt: createdDate,
+              updatedAt: createdDate,
+            };
+
+            console.log(signupData);
+
+            var success = document.getElementById("success");
+
+            // Send form data to the server-side script
+            $.ajax({
+              url: "/saveUserCredentials", // Replace with the URL of your server-side script
+              type: "POST",
+              contentType: "application/json", // Set the content type to JSON
+              // dataType: "json", // Expect JSON response
+              data: JSON.stringify(signupData), // Serialize the data as JSON
+              success: function () {
+                console.log("Successfully signed up!");
+
+                success.style.display = "block";
+                $("#main-wrapper").css("opacity", "0.95");
+                setTimeout(function () {
+                  success.style.display = "none";
+                  $("#main-wrapper").css("opacity", "1");
+                  const form = document.getElementById("signupForm");
+                  form.reset();
+                  location.href = "/";
+                }, 2000);
+              },
+              error: function (xhr, status, error) {
+                console.error("Error signing up!", error);
+                // Handle error response
+              },
+            });
+          } else {
+            $("#signupForm")[0].reportValidity();
+            document.getElementById("popup-warning-desc").innerHTML =
+              "Password did not matched!";
+            error.style.display = "block";
+            $("#main-wrapper").css("opacity", "0.95");
+            setTimeout(function () {
+              document.getElementById("popup-warning-desc").innerHTML =
+                "Please fill up the missing fields!";
+              error.style.display = "none";
+              $("#main-wrapper").css("opacity", "1");
+            }, 2000);
+          }
+        } else {
+          $("#signupForm")[0].reportValidity();
+          error.style.display = "block";
+          $("#main-wrapper").css("opacity", "0.95");
+          setTimeout(function () {
+            error.style.display = "none";
+            $("#main-wrapper").css("opacity", "1");
+          }, 2000);
+        }
+      });
+
+      function cancel() {
+        window.location.href = "/";
+      }
+    </script>
+  </body>
+</html>

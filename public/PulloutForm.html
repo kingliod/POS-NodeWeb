@@ -14,7 +14,7 @@
       content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
     />
     <meta name="robots" content="noindex,nofollow" /> -->
-    <title>Job Order Form</title>
+    <title>Pull Out Form</title>
     <!-- Favicon icon -->
     <!-- <link
       rel="icon"
@@ -45,57 +45,9 @@
     />
     <link href="../dist/css/style.min.css" rel="stylesheet" />
     <style>
-      #joPage {
+      #poPage {
         background: #27a9e3;
         opacity: 1;
-      }
-
-      #description {
-        background: "transparent";
-        border: "1px solid gray";
-        color: "white";
-        padding: "10px";
-        width: "100%";
-      }
-
-      dialog {
-        min-width: 800px;
-        padding: 20px;
-        background-color: #212a3e;
-        border: none;
-        border-radius: 5px;
-        border: 0.5px solid rgba(111, 109, 109, 0.464);
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.159);
-      }
-
-      /* Style the dialog box content */
-      dialog p {
-        font-size: 18px;
-        line-height: 1.5;
-        margin-bottom: 20px;
-      }
-
-      /* Style the close button */
-      .close-dialog {
-        /* background-color: #9c4a44; */
-        background-color: rgb(16, 91, 170);
-        color: #fff;
-        border: none;
-        padding: 7px;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
-      }
-
-      /* Change the close button background color on hover */
-      .close-dialog:hover {
-        /* background-color: #d32f2f; */
-        background-color: rgb(12, 12, 178);
-      }
-
-      #cancel-dialog {
-        margin-left: 10px;
       }
 
       .loader {
@@ -241,7 +193,6 @@
             <ul id="sidebarnav" class="pt-4" style="background: #2b3a55">
               <li class="sidebar-item">
                 <a
-                  id="joPage"
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="/job-order-listing"
                   aria-expanded="false"
@@ -251,6 +202,7 @@
               </li>
               <li class="sidebar-item">
                 <a
+                  id="poPage"
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="pull-out-listing"
                   aria-expanded="false"
@@ -301,6 +253,7 @@
                   </li>
                 </ul>
               </li> -->
+
               <!-- <li class="sidebar-item">
                 <a
                   class="sidebar-link has-arrow waves-effect waves-dark"
@@ -442,15 +395,16 @@
               background: #2b3a55;
             "
           >
-            <form id="joForm" style="color: white; padding: 20px">
+            <form id="poForm" style="color: white; padding: 20px">
               <div class="card-body">
                 <h4
                   class="card-title"
                   style="font-weight: bold; font-size: 28px"
                 >
-                  Job Order Form
+                  Pullout Form
                 </h4>
               </div>
+
               <div style="display: flex; flex-direction: column">
                 <div
                   style="
@@ -464,57 +418,27 @@
                 >
                   <div
                     class="input-group"
-                    style="width: 100%; margin-right: 30px"
+                    style="width: 100%; margin-right: 20px"
                   >
                     <input
-                      id="jodate"
+                      id="podate"
                       type="date"
-                      class="form-control joborder_data"
+                      class="form-control po_data"
                       onfocus="(this.showPicker())"
                       style="
                         background: transparent;
                         border: 1px solid grey;
                         color: white;
                         width: 100%;
-                        height: 40px;
+                        height: 43px;
                       "
                     />
-                  </div>
-                  <div
-                    style="
-                      width: 100%;
-                      margin-right: 30px;
-                      display: flex;
-                      align-items: center;
-                    "
-                  >
-                    <input
-                      style="
-                        background: transparent;
-                        border: 1px solid grey;
-                        width: 100%;
-                        height: 40px;
-                        /* color: white; */
-                      "
-                      type="text"
-                      id="disabledTextInput"
-                      class="form-control"
-                      placeholder="CUSTOMER*"
-                      disabled
-                    />
-                    <div style="margin-left: 10px">
-                      <i
-                        class="me-2 mdi mdi-plus-circle"
-                        style="font-size: 1.5rem"
-                        id="open-dialog"
-                      ></i>
-                    </div>
                   </div>
 
-                  <div style="width: 100%">
+                  <div style="width: 100%; margin-right: 20px">
                     <select
-                      id="technical"
-                      class="joborder_data"
+                      id="customer_name"
+                      class="po_data"
                       style="
                         width: 100%;
                         height: 40px;
@@ -524,10 +448,23 @@
                       "
                       required
                     >
-                      <option value="" disabled selected>TECHNICAL*</option>
-                      <!-- <option value="Ralph">RALPH</option>
-                      <option value="Genesis">GENESIS</option>
-                      <option value="Warren">WARREN</option> -->
+                      <option value="" disabled selected>Customer*</option>
+                    </select>
+                  </div>
+                  <!-- class="col-md-9" -->
+                  <div style="width: 100%">
+                    <select
+                      id="pullout"
+                      style="
+                        width: 100%;
+                        height: 40px;
+                        background: transparent;
+                        border: 1px solid grey;
+                        padding: 5px;
+                      "
+                      disabled
+                    >
+                      <!-- <option value="" selected>Pullout By:</option> -->
                     </select>
                   </div>
                 </div>
@@ -542,78 +479,15 @@
                     padding: 10px;
                   "
                 >
-                  <div style="width: 100%; margin-right: 30px">
-                    <input
-                      id="contactperson"
-                      style="
-                        background: transparent;
-                        border: 1px solid grey;
-                        color: white;
-                        padding: 10px;
-                        width: 100%;
-                        height: 40px;
-                      "
-                      type="text"
-                      class="form-control joborder_data"
-                      placeholder="CONTACT PERSON*"
-                      required
-                    />
-                  </div>
-                  <div style="width: 100%; margin-right: 30px">
-                    <input
-                      id="transpo"
-                      style="
-                        width: 100%;
-                        height: 40px;
-                        background: transparent;
-                        border: 1px solid grey;
-                        color: white;
-                        padding: 5px;
-                      "
-                      type="number"
-                      class="form-control joborder_data"
-                      placeholder="TRANSPO"
-                    />
-                  </div>
-                  <div style="width: 100%">
-                    <select
-                      id="status"
-                      class="joborder_data"
-                      style="
-                        width: 100%;
-                        height: 40px;
-                        background: transparent;
-                        border: 1px solid grey;
-                        /* color: gray; */
-                        padding: 5px;
-                      "
-                    >
-                      <option value="" disabled selected>STATUS:</option>
-                      <option value="OPEN">OPEN</option>
-                      <option value="CLOSE">CLOSE</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div
-                  style="
-                    display: flex;
-                    /* align-items: center; */
-                    justify-content: space-between;
-                    width: auto;
-                    margin: 10px;
-                    padding: 10px;
-                  "
-                >
                   <div
                     class="input-group"
                     style="width: 100%; margin-right: 30px"
                   >
                     <div class="col-lg-12">
                       <textarea
-                        id="remarks"
-                        class="form-control joborder_data"
-                        placeholder="REMARKS"
+                        id="problem"
+                        class="form-control po_data"
+                        placeholder="Problem"
                         rows="4"
                         maxlength="255"
                         style="
@@ -626,17 +500,13 @@
                       ></textarea>
                     </div>
                   </div>
-
-                  <div
-                    class="input-group"
-                    style="width: 100%; margin-right: 30px"
-                  >
+                  <div class="input-group" style="width: 100%">
                     <div class="col-lg-12">
                       <textarea
-                        id="deliveryrems"
-                        class="form-control joborder_data"
-                        placeholder="DELIVERY REMARKS"
-                        rows="2"
+                        id="action"
+                        class="form-control po_data"
+                        placeholder="Action"
+                        rows="4"
                         maxlength="255"
                         style="
                           background: transparent;
@@ -648,35 +518,6 @@
                       ></textarea>
                     </div>
                   </div>
-
-                  <div style="width: 100%; display: flex">
-                    <input
-                      type="checkbox"
-                      class="form-check-input joborder_data"
-                      id="customControlAutosizing1"
-                      style="margin-right: 10px"
-                    />
-                    <label
-                      class="form-check-label mb-0"
-                      for="customControlAutosizing1"
-                      >PERMIT ISSUED</label
-                    >
-                  </div>
-                </div>
-
-                <div class="card-body">
-                  <h4
-                    class="card-title"
-                    style="
-                      font-weight: bold;
-                      text-align: center;
-                      font-size: 35px;
-                      letter-spacing: 3.5px;
-                      margin-top: 50px;
-                    "
-                  >
-                    WORK ACTIVITY
-                  </h4>
                 </div>
 
                 <div
@@ -685,211 +526,31 @@
                     align-items: center;
                     justify-content: space-between;
                     width: auto;
+                    /* background-color: white; */
                     margin: 10px;
                     padding: 10px;
                   "
                 >
-                  <div id="desc" style="width: 100%; margin-right: 30px">
-                    <input
-                      id="description0"
-                      name="workActD[]"
-                      style="
-                        background: transparent;
-                        border: 1px solid gray;
-                        color: white;
-                        padding: 10px;
-                        width: 100%;
-                      "
-                      type="text"
-                      class="joForm"
-                      placeholder="DESCRIPTION*"
-                      required
-                    />
-                  </div>
-                  <div id="rems" style="width: 100%">
-                    <input
-                      id="waremarks0"
-                      name="workActR[]"
-                      style="
-                        background: transparent;
-                        border: 1px solid gray;
-                        color: white;
-                        padding: 10px;
-                        width: 100%;
-                      "
-                      type="text"
-                      class="joForm"
-                      placeholder="REMARKS*"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div
-                  style="
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                    width: auto;
-                    /* margin-top: 10px; */
-                    padding: 10px;
-                  "
-                >
-                  <div style="margin-right: 10px">
-                    <i
-                      class="me-2 mdi mdi-library-plus"
-                      style="font-size: 1.5rem"
-                      onclick="Add()"
-                    ></i>
-                  </div>
-                  <div style="margin-right: 25px">
-                    <i
-                      class="me-2 mdi mdi-delete"
-                      style="font-size: 1.5rem"
-                      onclick="Remove()"
-                    ></i>
+                  <div class="input-group">
+                    <div class="col-lg-12">
+                      <textarea
+                        id="recommendation"
+                        class="form-control po_data"
+                        placeholder="Recommendation"
+                        rows="4"
+                        maxlength="255"
+                        style="
+                          background: transparent;
+                          border: 1px solid grey;
+                          color: white;
+                          width: 100%;
+                          resize: none;
+                        "
+                      ></textarea>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <dialog id="my-dialog">
-                <p style="color: white">ADD CUSTOMER</p>
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: row;
-                    gap: 1vw;
-                    margin-bottom: 1.5vh;
-                  "
-                >
-                  <input
-                    id="customer_name"
-                    class="customer_data"
-                    type="text"
-                    placeholder="Customer Name*"
-                    style="
-                      width: 20vw;
-                      padding: 8px;
-                      border-radius: 4px;
-                      background: transparent;
-                      border: 1px solid gray;
-                      color: white;
-                    "
-                    required
-                  />
-                  <input
-                    id="address"
-                    class="customer_data"
-                    type="text"
-                    placeholder="Address"
-                    style="
-                      width: 20vw;
-                      padding: 8px;
-                      border-radius: 4px;
-                      background: transparent;
-                      border: 1px solid gray;
-                      color: white;
-                    "
-                    required
-                  />
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: row;
-                    gap: 1vw;
-                    margin-bottom: 1.5vh;
-                  "
-                >
-                  <input
-                    id="telephone"
-                    class="customer_data"
-                    type="number"
-                    placeholder="Telephone*"
-                    style="
-                      width: 20vw;
-                      padding: 8px;
-                      border-radius: 4px;
-                      background: transparent;
-                      border: 1px solid gray;
-                      color: white;
-                    "
-                    required
-                  />
-                  <select
-                    id="customer_type"
-                    class="customer_data"
-                    style="
-                      width: 20vw;
-                      padding: 8px;
-                      border-radius: 4px;
-                      background: transparent;
-                      border: 1px solid gray;
-                      /* color: white; */
-                    "
-                    required
-                  >
-                    <option value="" disabled selected>Type:</option>
-                    <option value="Regular">REGULAR</option>
-                    <option value="Dealer">DEALER</option>
-                    <option value="Others">OTHERS</option>
-                  </select>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: row;
-                    gap: 1vw;
-                    margin-bottom: 2vh;
-                  "
-                >
-                  <input
-                    id="email"
-                    class="customer_data"
-                    type="email"
-                    placeholder="Email*"
-                    style="
-                      width: 20vw;
-                      padding: 8px;
-                      border-radius: 4px;
-                      background: transparent;
-                      border: 1px solid gray;
-                      color: white;
-                    "
-                    required
-                  />
-                  <select
-                    id="terms"
-                    class="customer_data"
-                    style="
-                      width: 20vw;
-                      padding: 8px;
-                      border-radius: 4px;
-                      background: transparent;
-                      border: 1px solid gray;
-                      /* color: white; */
-                    "
-                    required
-                  >
-                    <option value="" disabled selected>Terms:</option>
-                    <option value="N/A">N/A</option>
-                    <option value="30">30</option>
-                    <option value="45">45</option>
-                  </select>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                  "
-                >
-                  <button id="save-customer" class="close-dialog">Save</button>
-                  <button id="cancel-dialog" class="close-dialog">
-                    Cancel
-                  </button>
-                </div>
-              </dialog>
 
               <div
                 style="
@@ -901,17 +562,14 @@
               >
                 <div>
                   <button
-                    id="saveJO"
+                    id="savePO"
                     type="button"
-                    onclick="submitJO()"
+                    onclick="submitPO()"
                     class="btn btn-primary btn-lg"
                   >
                     Save
                   </button>
                 </div>
-                <!-- <div style="margin-left: 10px">
-                  <button type="submit" class="btn btn-primary">Clear</button>
-                </div> -->
                 <div style="margin-left: 10px">
                   <button
                     type="button"
@@ -932,6 +590,7 @@
         </footer>
       </div>
     </div>
+
     <div id="logoutConfirm" class="wrapper-logout">
       <div class="card" id="errorcard">
         <div class="subject">
@@ -978,7 +637,7 @@
         <div class="icon"><i class="fas fa-check-circle"></i></div>
         <div class="subject">
           <h3>Success!</h3>
-          <p id="popup-description">Successfully created a Job Order!</p>
+          <p id="popup-description">Successfully created a Pullout!</p>
         </div>
       </div>
     </div>
@@ -1017,17 +676,6 @@
     <script src="../assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../assets/libs/quill/dist/quill.min.js"></script>
     <script>
-      const userID = "";
-      fetch("/getUserLoggedInData")
-        .then((response) => response.json())
-        .then((data) => {
-          data.forEach((row) => {
-            var heading = document.getElementById("welcomeUsername");
-            heading.innerHTML = `Welcome, ${row.username}!`;
-          });
-        })
-        .catch((error) => console.error(error));
-
       var date = new Date(); // Replace this with your Date object
 
       var month = date.getMonth() + 1; // Months are zero-based, so add 1
@@ -1044,71 +692,7 @@
         (day < 10 ? "0" : "") +
         day;
 
-      document.getElementById("jodate").value = formattedDate;
-
-      var dialogCustomer = document.querySelector("dialog");
-      var button = document.querySelector("#open-dialog");
-      var saveCustomer = document.querySelector("#save-customer");
-      var cancelButton = document.querySelector("#cancel-dialog");
-
-      button.addEventListener("click", function () {
-        dialogCustomer.showModal();
-        $("#main-wrapper").css("opacity", "0.95");
-      });
-
-      const customerInputs = document.getElementsByClassName("customer_data");
-
-      Array.from(customerInputs).forEach((input) => {
-        input.addEventListener("keypress", (event) => {
-          if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("save-customer").click();
-          }
-        });
-      });
-
-      saveCustomer.addEventListener("click", function () {
-        if (
-          $("#customer_name").val() == "" ||
-          $("#address").val() == "" ||
-          $("#telephone").val() == "" ||
-          $("#customer_type").val() == "" ||
-          $("#email").val() == "" ||
-          $("#terms").val() == ""
-        ) {
-          error.style.display = "block";
-          $("#my-dialog").css("opacity", "0.97");
-          setTimeout(function () {
-            error.style.display = "none";
-            $("#my-dialog").css("opacity", "1");
-          }, 2500);
-        } else {
-          document.getElementById("popup-description").innerHTML =
-            "Successfully saved Customer Info!";
-          success.style.display = "block";
-          $("#my-dialog").css("opacity", "0.7");
-          setTimeout(function () {
-            success.style.display = "none";
-            document.getElementById("disabledTextInput").value =
-              $("#customer_name").val();
-            document.getElementById("disabledTextInput").style.color = "white";
-            document.getElementById("popup-description").innerHTML =
-              "Successfully created a Job Order!";
-            $("#my-dialog").css("opacity", "1");
-            $("#main-wrapper").css("opacity", "1");
-            dialogCustomer.close();
-          }, 2500);
-
-          $("#joForm").submit(function (e) {
-            e.preventDefault();
-          });
-        }
-      });
-
-      cancelButton.addEventListener("click", function () {
-        dialogCustomer.close();
-        $("#main-wrapper").css("opacity", "1");
-      });
+      document.getElementById("podate").value = formattedDate;
 
       //***********************************//
       // For select 2
@@ -1125,35 +709,26 @@
         theme: "snow",
       });
 
-      const containerdesc = document.getElementById("desc");
-      const containerrems = document.getElementById("rems");
-      var wa_id = 0;
-      let input;
-      var workAD = document.getElementsByName("workActD[]");
-      var workAR = document.getElementsByName("workActR[]");
-
-      // $(document).ready(function () {
-
       document
-        .getElementById("technical")
-        .addEventListener("load", loadEmployeeNames());
+        .getElementById("customer_name")
+        .addEventListener("load", loadCustomerNames());
 
-      function loadEmployeeNames() {
-        fetch("/getEmployeeListing")
+      function loadCustomerNames() {
+        fetch("/getJOData")
           .then((response) => response.json())
           .then((data) => {
             data.forEach((row) => {
               // create option using DOM
               const newOption = document.createElement("option");
               const optionText = document.createTextNode(
-                `${row.full_name.toString().toUpperCase()}`
+                `${row.customer_name}`
               );
               // set option text
               newOption.appendChild(optionText);
               // and option value
-              newOption.setAttribute("value", `${row.full_name}`);
+              newOption.setAttribute("value", `${row.customer_name}`);
 
-              const select = document.getElementById("technical");
+              const select = document.getElementById("customer_name");
               select.appendChild(newOption);
 
               select.addEventListener("change", function () {
@@ -1164,17 +739,13 @@
           .catch((error) => console.error(error));
       }
 
-      function validateJO() {
+      function validatePullout() {
         if (
-          $("#jodate").val() == "" ||
+          $("#podate").val() == "" ||
           $("#customer_name").val() == "" ||
-          $("#technical").val() == "" ||
-          $("#contactperson").val() == "" ||
-          $("#transpo").val() == "" ||
-          $("#status").val() == "" ||
-          $("#remarks").val() == "" ||
-          $("#deliveryrems").val() == "" ||
-          $("#customControlAutosizing1").val() == ""
+          $("#problem").val() == "" ||
+          $("#action").val() == "" ||
+          $("#recommendation").val() == ""
         ) {
           return false;
         } else {
@@ -1182,85 +753,22 @@
         }
       }
 
-      function validateCustomer() {
-        if (
-          $("#customer_name").val() == "" ||
-          $("#address").val() == "" ||
-          $("#telephone").val() == "" ||
-          $("#customer_type").val() == "" ||
-          $("#email").val() == "" ||
-          $("#terms").val() == ""
-        ) {
-          return false;
-        } else {
-          return true;
-        }
-      }
+      const poInputs = document.getElementsByClassName("po_data");
 
-      function Add() {
-        input = document.createElement("input");
-        input.placeholder = "DESCRIPTION";
-        wa_id += 1;
-        input.id = "description" + wa_id;
-        input.type = "text";
-        input.className = "joForm";
-        input.name = "workActD[]";
-        containerdesc.appendChild(input);
-        input.style.cssText +=
-          "background: transparent; border: 1px solid gray; color: white; padding: 10px; width: 100%; margin-top: 20px";
-        console.log(input.id);
-
-        let inputrems = document.createElement("input");
-        inputrems.placeholder = "REMARKS";
-        inputrems.id = "waremarks" + wa_id;
-        inputrems.type = "text";
-        inputrems.className = "joForm";
-        inputrems.name = "workActR[]";
-        containerrems.appendChild(inputrems);
-        inputrems.style.cssText +=
-          "background: transparent; border: 1px solid gray; color: white; padding: 10px; width: 100%; margin-top: 20px";
-      }
-
-      function Remove() {
-        let i = 0;
-
-        while (workAD.length != 0) {
-          if (i == workAD.length - 1) {
-            document.getElementsByName("workActD[]")[i].remove();
-            document.getElementsByName("workActR[]")[i].remove();
-            console.log("Length: " + workAD.length);
-            break;
-          }
-          i++;
-        }
-      }
-
-      const joInputs = document.getElementsByClassName("joborder_data");
-
-      Array.from(joInputs).forEach((input) => {
+      Array.from(poInputs).forEach((input) => {
         input.addEventListener("keypress", (event) => {
           if (event.key === "Enter") {
             event.preventDefault();
-            document.getElementById("saveJO").click();
+            document.getElementById("savePO").click();
           }
         });
       });
 
-      function submitJO() {
-        if (validateCustomer() && validateJO()) {
-          var checkbox = document.getElementById("customControlAutosizing1");
+      function submitPO() {
+        if (validatePullout()) {
+          const dateString = $("#podate").val();
 
-          if (checkbox.checked) {
-            document.getElementById("customControlAutosizing1").value = "True";
-          } else {
-            document.getElementById("customControlAutosizing1").value = "False";
-          }
-
-          var currentDate = new Date();
-
-          const dateString = $("#jodate").val();
-
-          const jodate = new Date(dateString);
+          const podate = new Date(dateString);
 
           const currentTime = new Date();
 
@@ -1268,122 +776,67 @@
           const minutes = currentTime.getMinutes();
           const seconds = currentTime.getSeconds();
 
-          jodate.setHours(hours, minutes, seconds);
-          jodate.toUTCString();
+          podate.setHours(hours, minutes, seconds);
+          podate.toUTCString();
 
-          var curDate = new Date();
-          var currentYear = curDate.getFullYear();
+          // var curDate = new Date();
+          // var currentYear = curDate.getFullYear();
 
-          if (localStorage.getItem("counter")) {
-            // If it exists, retrieve its value and convert it to a number
-            var counter = parseInt(localStorage.getItem("counter"));
-          } else {
-            // If it doesn't exist, set the counter to an initial value
-            var counter = 0;
-          }
+          // if (localStorage.getItem("counter")) {
+          //   // If it exists, retrieve its value and convert it to a number
+          //   var counter = parseInt(localStorage.getItem("counter"));
+          // } else {
+          //   // If it doesn't exist, set the counter to an initial value
+          //   var counter = 0;
+          // }
 
-          // Increment the counter
-          counter++;
+          // // Increment the counter
+          // counter++;
 
-          // Store the updated value in the localStorage
-          localStorage.setItem("counter", counter);
+          // // Store the updated value in the localStorage
+          // localStorage.setItem("counter", counter);
 
-          var joborder_id = currentYear + "000000" + counter;
+          // var pullout_id = currentYear + "000000" + counter;
 
-          // Get form data
-          var joData = {
-            joborder_id: joborder_id,
-            jodate: jodate,
-            contactperson: $("#contactperson").val(),
-            transpo: $("#transpo").val(),
-            remarks: $("#remarks").val(),
-            deliveryrems: $("#deliveryrems").val(),
-            status: $("#status").val(),
-            customControlAutosizing1: $("#customControlAutosizing1").val(),
-            createdAt: currentDate,
-            updatedAt: currentDate,
-            technical: $("#technical").val(),
+          var poData = {
+            podate: podate,
             customer_name: $("#customer_name").val(),
-            address: $("#address").val(),
-            telephone: $("#telephone").val(),
-            customer_type: $("#customer_type").val(),
-            email: $("#email").val(),
-            terms: $("#terms").val(),
+            pullout: $("#pullout").val(),
+            problem: $("#problem").val(),
+            action: $("#action").val(),
+            recommendation: $("#recommendation").val(),
+            status: "OPEN",
           };
 
-          // console.log("Technical value: " + $("#technical").val());
+          console.log(poData);
+
           var success = document.getElementById("success");
 
-          // Send form data to the server-side script
           $.ajax({
-            url: "/saveJOData",
+            url: "/savePOData",
             type: "POST",
             contentType: "application/json",
             // dataType: "json", // Expect JSON response
-            data: JSON.stringify(joData),
+            data: JSON.stringify(poData),
             success: function () {
-              console.log("Job Order data saved successfully!");
-              document.getElementById("popup-description").innerHTML =
-                "Successfully created a Job Order!";
+              console.log("Pullout data saved successfully!");
               success.style.display = "block";
               $("#main-wrapper").css("opacity", "0.95");
               setTimeout(function () {
                 success.style.display = "none";
                 $("#main-wrapper").css("opacity", "1");
 
-                const form = document.getElementById("joForm");
+                const form = document.getElementById("poForm");
                 form.reset();
 
-                let z = 0;
-
-                console.log("AD: " + workAD.length);
-
-                while (workAD.length) {
-                  if (z != 0) {
-                    var elem = document.getElementById("description" + z);
-
-                    if (elem) {
-                      document.getElementById("description" + z).remove();
-                      document.getElementById("waremarks" + z).remove();
-                    } else {
-                      console.log("z: " + z);
-                      break;
-                    }
-                  }
-                  z++;
-                }
-
-                wa_id = 0;
-
-                location.href = "/job-order-listing";
-              }, 2000);
+                location.href = "/pull-out-listing";
+              }, 2500);
             },
             error: function (xhr, status, error) {
-              console.error("Error saving Job Order data:", error);
-              // Handle error response
+              console.error("Error saving Pullout data:", error);
             },
           });
-        } else if (!validateCustomer() && validateJO()) {
-          document.getElementById("popup-warning-desc").innerHTML =
-            "Fill up the Customer Form!";
-          error.style.display = "block";
-          $("#main-wrapper").css("opacity", "0.95");
-          setTimeout(function () {
-            error.style.display = "none";
-            $("#main-wrapper").css("opacity", "1");
-          }, 2500);
-        } else if (!validateJO() && validateCustomer()) {
-          document.getElementById("popup-warning-desc").innerHTML =
-            "Fill up the Job Order Form!";
-          error.style.display = "block";
-          $("#main-wrapper").css("opacity", "0.95");
-          setTimeout(function () {
-            error.style.display = "none";
-            $("#main-wrapper").css("opacity", "1");
-          }, 2500);
         } else {
-          document.getElementById("popup-warning-desc").innerHTML =
-            "Fill up the Job Order and Customer Form!";
           error.style.display = "block";
           $("#main-wrapper").css("opacity", "0.95");
           setTimeout(function () {
@@ -1394,7 +847,7 @@
       }
 
       function cancel() {
-        window.location.href = "/job-order-listing";
+        window.location.href = "/pull-out-listing";
       }
 
       function logOut() {
@@ -1413,7 +866,7 @@
           success.style.display = "block";
           setTimeout(function () {
             document.getElementById("popup-description").innerHTML =
-              "Successfully created a Job Order!";
+              "Successfully created a Pullout!";
             location.href = "/logout";
           }, 1000);
         }, 2500);
@@ -1421,9 +874,42 @@
         success.style.display = "none";
       }
 
-      document.getElementById("status").addEventListener("change", function () {
-        document.getElementById("status").style.color = "white";
-      });
+      fetch("/getUserCredentials")
+        .then((response) => response.json())
+        .then((data) => {
+          data.forEach((row) => {
+            // create option using DOM
+            const newOption = document.createElement("option");
+            const optionText = document.createTextNode(
+              `Pullout By: ${row.username.toString().toUpperCase()}`
+            );
+            // set option text
+            newOption.appendChild(optionText);
+            // and option value
+            newOption.setAttribute("value", `${row.username}`);
+
+            const select = document.getElementById("pullout");
+            select.appendChild(newOption);
+          });
+
+          fetch("/getUserLoggedInData")
+            .then((response) => response.json())
+            .then((data) => {
+              data.forEach((row) => {
+                const uname = row.username;
+
+                const select = document.querySelector("#pullout");
+                select.value = `${uname}`;
+
+                select.style.color = "white";
+
+                var heading = document.getElementById("welcomeUsername");
+                heading.innerHTML = `Welcome, ${row.username}!`;
+              });
+            })
+            .catch((error) => console.error(error));
+        })
+        .catch((error) => console.error(error));
     </script>
   </body>
 </html>

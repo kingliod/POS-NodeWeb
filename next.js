@@ -6,7 +6,7 @@ const app = express();
 
 const connectionString =
   "server=localhost;Database=jo;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
-const query = "SELECT * from [jo].[dbo].[joborders]";
+const query = "SELECT * from [jo].[dbo].[work_activities_erp]";
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -22,7 +22,7 @@ app.get("/data", (req, res) => {
   });
 });
 
-const PORT = 3000;
+const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

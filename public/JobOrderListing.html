@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="keywords"
+      content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"
+    />
+    <meta
+      name="description"
+      content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
+    />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Job Order Listing</title>
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/images/favicon.png"
+    />
+    <!-- Custom CSS -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/extra-libs/multicheck/multicheck.css"
+    />
+    <link
+      href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css"
+      rel="stylesheet"
+    />
+    <link href="../dist/css/style.min.css" rel="stylesheet" />
+    <style>
+      #joPage {
+        background: #27a9e3;
+        opacity: 1;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .th-action {
+        text-align: center;
+      }
+      th,
+      td {
+        height: 8vh;
+        border: none;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: none;
+        color: white;
+      }
+      tr {
+        border-bottom: 1px solid #717070;
+      }
+      tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .loader {
+        display: none;
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear; /* Safari */
+        animation: spin 2s linear;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+
+  <body style="background: #233044; color: rgb(178, 177, 177)">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+      <!-- ============================================================== -->
+      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+
+      <!-- ============================================================== -->
+      <!-- End Topbar header -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <aside
+        class="left-sidebar"
+        data-sidebarbg="skin5"
+        style="background: #233044"
+      >
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="pt-4" style="background: #233044">
+              <li class="sidebar-item">
+                <a
+                  id="joPage"
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="/job-order-listing"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-view-dashboard"></i
+                  ><span class="hide-menu">Job Order Listing</span></a
+                >
+              </li>
+
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="/pull-out-listing"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-border-inside"></i
+                  ><span class="hide-menu">PullOut Listing</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+
+      <div class="page-wrapper">
+        <header
+          class="topbar"
+          data-navbarbg="skin5"
+          style="background: #233044"
+        >
+          <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <div
+              class="navbar-collapse collapse"
+              data-navbarbg="skin5"
+              style="background: #212a3e"
+            >
+              <ul class="navbar-nav float-start me-auto"></ul>
+
+              <ul class="navbar-nav float-end">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="../assets/images/users/1.jpg"
+                      alt="user"
+                      class="rounded-circle"
+                      width="31"
+                    />
+                  </a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-end user-dd animated"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <h3
+                      class="dropdown-item"
+                      id="welcomeUsername"
+                      style="
+                        font-family: 'Times New Roman', Times, serif;
+                        text-align: center;
+                      "
+                    >
+                      Welcome, username!
+                    </h3>
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-wallet me-1 ms-1"></i> My Balance</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:void(0)"
+                      ><i class="mdi mdi-settings me-1 ms-1"></i> Account
+                      Setting</a
+                    >
+                    <!-- <div class="dropdown-divider"></div> -->
+                    <a class="dropdown-item" onclick="logOut()"
+                      ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
+                    >
+                    <!-- <div class="dropdown-divider"></div>
+                    <div class="ps-4 p-10">
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-sm btn-success btn-rounded text-white"
+                        >View Profile</a
+                      >
+                    </div> -->
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+        <div class="container-fluid" style="background: #1b2635">
+          <div class="row">
+            <div class="col-12">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                "
+              >
+                <h3 style="text-indent: 1em">Job Order Listing</h3>
+                <div id="search-div">
+                  <form action="" method="GET">
+                    <input
+                      type="text"
+                      id="search"
+                      placeholder="Type here..."
+                      name="q"
+                      style="
+                        padding: 5px;
+                        border-radius: 4px;
+                        background-color: transparent;
+                        border: 1px solid rgb(126, 125, 125);
+                        color: white;
+                      "
+                    />
+                    <button
+                      id="searchBtn"
+                      type="button"
+                      onclick="searchData()"
+                      style="
+                        padding: 5px;
+                        border-radius: 4px;
+                        background-color: #2255a4;
+                        color: white;
+                        border: none;
+                        width: 5vw;
+                      "
+                    >
+                      Search
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="card" style="background: #233044">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Basic Datatable</h5> -->
+                  <div class="table-responsive">
+                    <!-- SELECT BUTTON & SEARCH FIELD -->
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        margin-bottom: 10px;
+                      "
+                    >
+                      <div>
+                        <label for="colors" style="margin-right: 7px"
+                          >Technical:</label
+                        >
+                        <select
+                          id="tech"
+                          name="colors"
+                          style="
+                            padding: 5px;
+                            border-radius: 4px;
+                            width: 9vw;
+                            color: white;
+                            background-color: transparent;
+                            border: 1px solid rgb(120, 120, 120);
+                          "
+                          onchange="filterTechnical()"
+                        >
+                          <option value="All">All</option>
+                          <!-- <option value="Ralph">Ralph</option>
+                          <option value="Genesis">Genesis</option>
+                          <option value="Warren">Warren</option> -->
+                        </select>
+                      </div>
+                    </div>
+                    <!-- DATE PICKER -->
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        margin-bottom: 10px;
+                        gap: 1vw;
+                      "
+                    >
+                      <div style="width: 24vw">
+                        <label for="date">Date Start:</label>
+                        <input
+                          type="date"
+                          id="dateStart"
+                          name="date"
+                          style="
+                            padding: 5px;
+                            border-radius: 4px;
+                            width: 9vw;
+                            color: white;
+                            background-color: transparent;
+                            border: 1px solid rgb(120, 120, 120);
+                            text-indent: 3px;
+                          "
+                        />
+                      </div>
+                      <div style="width: 25vw">
+                        <label for="date">Date End:</label>
+                        <input
+                          type="date"
+                          id="dateEnd"
+                          name="date"
+                          style="
+                            padding: 5px;
+                            border-radius: 4px;
+                            width: 9vw;
+                            color: white;
+                            background-color: transparent;
+                            border: 1px solid rgb(120, 120, 120);
+                            text-indent: 3px;
+                          "
+                        />
+                      </div>
+                      <div
+                        style="
+                          display: flex;
+                          justify-content: space-between;
+                          width: 100%;
+                        "
+                      >
+                        <div style="display: flex; flex-direction: row">
+                          <button
+                            type="button"
+                            class="btn btn-block btn-sm btn-info"
+                            style="
+                              width: 5vw;
+                              height: 3.5vh;
+                              margin-right: 5px;
+                              padding: 5px;
+                              border-radius: 4px;
+                              height: 4.5vh;
+                            "
+                            onclick="filterDate()"
+                          >
+                            Filter
+                          </button>
+                          <button
+                            type="submit"
+                            class="btn btn-secondary btn-sm text-white"
+                            style="
+                              width: 5vw;
+                              height: 3.5vh;
+                              padding: 5px;
+                              border-radius: 4px;
+                              height: 4.5vh;
+                            "
+                            onclick="resetPage()"
+                          >
+                            Reset
+                          </button>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            margin-bottom: 10px;
+                          "
+                        >
+                          <div>
+                            <label for="colors" style="margin-right: 7px"
+                              >Rows:</label
+                            >
+                            <select
+                              id="desiredRows"
+                              name="colors"
+                              style="
+                                padding: 5px;
+                                border-radius: 4px;
+                                width: 5vw;
+                                color: white;
+                                background-color: transparent;
+                                border: 1px solid rgb(120, 120, 120);
+                              "
+                              onchange="filterRows()"
+                            >
+                              <!-- <option value="All">All</option> -->
+                              <option value="5">5</option>
+                              <option value="10">10</option>
+                              <option value="20">20</option>
+                              <option value="30">30</option>
+                              <option value="50">50</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div style="display: flex; justify-content: flex-end">
+                          <button
+                            type="submit"
+                            class="btn btn-block btn-sm btn-info"
+                            style="
+                              width: 5.9vw;
+                              height: 3.5vh;
+                              margin-bottom: 20px;
+                              padding: 5px;
+                              border-radius: 4px;
+                              height: 4.5vh;
+                            "
+                            onclick="gotoJOForm()"
+                          >
+                            + Add New
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <table id="contFluid" style="border: none">
+                      <thead>
+                        <tr>
+                          <th style="color: white">Job Order No</th>
+                          <th style="color: white">Date</th>
+                          <th style="color: white">Customer</th>
+                          <th style="color: white">Address</th>
+                          <th style="color: white">Technical</th>
+                          <th style="color: white">Month</th>
+                          <th style="color: white">Week No</th>
+                          <th style="color: white">Status</th>
+                          <th class="th-action" style="color: white">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody id="table-body" style="color: white"></tbody>
+                    </table>
+                    <div style="display: flex; justify-content: flex-end">
+                      <nav aria-label="...">
+                        <!-- class="page-item disabled" -->
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <!-- <a
+                              class="page-link"
+                              href="#"
+                              tabindex="-1"
+                              style="
+                                background-color: transparent;
+                                border-color: rgb(117, 116, 116);
+                                color: white;
+                              "
+                              onclick="previousPage()"
+                              disabled
+                              >Prev</a
+                            > -->
+                            <button
+                              id="previous"
+                              class="page-link"
+                              type="button"
+                              style="
+                                background-color: transparent;
+                                border-color: rgb(117, 116, 116);
+                                color: white;
+                              "
+                              onclick="previousPage()"
+                            >
+                              Prev
+                            </button>
+                          </li>
+
+                          <li class="page-item">
+                            <!-- <a
+                              class="page-link"
+                              href="#"
+                              style="
+                                background-color: transparent;
+                                border-color: rgb(117, 116, 116);
+                                color: white;
+                              "
+                              onclick="nextPage()"
+                              >Next</a
+                            > -->
+                            <button
+                              id="next"
+                              class="page-link"
+                              type="button"
+                              style="
+                                background-color: transparent;
+                                border-color: rgb(117, 116, 116);
+                                color: white;
+                              "
+                              onclick="nextPage()"
+                            >
+                              Next
+                            </button>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="view"
+                  style="display: none; width: 80%; margin-left: 10%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center" style="background-color: #1e2a38">
+          All Rights Reserved by
+          <a href="http://pricelist.zankpos.com/" target="blank"
+            >Zank POS Enterprises</a
+          >.
+        </footer>
+
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Page wrapper  -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- <dialog id="my-dialog">
+      <p>LOG OUT</p>
+      <div
+        style="display: flex; flex-direction: row; gap: 1vw; margin-bottom: 2vh"
+      >
+        <p>Are you sure you want to log out?</p>
+      </div>
+      <div
+        style="display: flex; align-items: center; justify-content: flex-end"
+      >
+        <button id="save-customer" class="close-dialog">Save</button>
+        <button id="cancel-dialog" class="close-dialog">Cancel</button>
+      </div>
+    </dialog> -->
+
+    <div id="logoutConfirm" class="wrapper-logout">
+      <div class="card" id="errorcard">
+        <div class="subject">
+          <h3>Log Out Confirmation</h3>
+          <p id="popup-warning-desc">Are you sure you want to log out?</p>
+        </div>
+        <div style="display: flex; justify-content: flex-end; margin-left: 40%">
+          <button
+            class="btn btn-block btn-sm btn-info"
+            style="
+              width: 4.9vw;
+              height: 3.5vh;
+              margin-right: 10px;
+              padding: 5px;
+              border-radius: 4px;
+              height: 4.5vh;
+            "
+            onclick="logOutAccount()"
+          >
+            Yes
+          </button>
+          <button
+            class="btn btn-block btn-sm btn-info"
+            style="
+              width: 4.9vw;
+              height: 3.5vh;
+
+              padding: 5px;
+              border-radius: 4px;
+              height: 4.5vh;
+            "
+            onclick="document.getElementById('logoutConfirm').style.display = 'none';
+            $('#main-wrapper').css('opacity', '1');"
+          >
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="success" class="wrapper-success">
+      <div class="card">
+        <div class="icon"><i class="fas fa-check-circle"></i></div>
+        <div class="subject">
+          <h3>Success!</h3>
+          <p id="popup-description">Log out successful!</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="error" class="wrapper-error">
+      <div class="card" id="errorcard">
+        <div id="erroricon" class="icon">
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <div class="subject">
+          <h3>Error!</h3>
+          <p id="popup-warning-desc">Invalid set up of Start and End Date!</p>
+        </div>
+      </div>
+    </div>
+    <div class="loader" id="loadingCircle"></div>
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="../dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../dist/js/custom.min.js"></script>
+    <!-- this page js -->
+    <script src="../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="../assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="../assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script>
+      /****************************************
+       *       Basic Table                   *
+       ****************************************/
+      $("#zero_config").DataTable();
+    </script>
+    <script>
+      function gotoJOForm() {
+        window.location.href = "/job-order-form";
+      }
+
+      // var dialogCustomer = document.querySelector("dialog");
+      // var button = document.querySelector("#open-dialog");
+
+      // button.addEventListener("click", function () {
+      //   dialogCustomer.showModal();
+      //   $("#main-wrapper").css("opacity", "0.6");
+      // });
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <script>
+      $(".preloader").fadeOut();
+
+      document
+        .getElementById("tech")
+        .addEventListener("load", loadEmployeeNames());
+
+      function loadEmployeeNames() {
+        fetch("/getEmployeeListing")
+          .then((response) => response.json())
+          .then((data) => {
+            data.forEach((row) => {
+              // create option using DOM
+              const newOption = document.createElement("option");
+              const optionText = document.createTextNode(
+                `${row.full_name.toString().toUpperCase()}`
+              );
+              // set option text
+              newOption.appendChild(optionText);
+              // and option value
+              newOption.setAttribute("value", `${row.full_name}`);
+
+              const select = document.getElementById("tech");
+              select.appendChild(newOption);
+
+              // select.addEventListener("change", function () {
+              //   select.style.color = "white";
+              // });
+            });
+          })
+          .catch((error) => console.error(error));
+      }
+
+      function showTableData() {
+        resetData();
+
+        fetch("/getJOData")
+          .then((response) => response.json())
+          .then((data) => {
+            const tableBody = document.querySelector("#table-body");
+            tableBody.innerHTML = "";
+            const mainCont = document.querySelector("#main-container");
+            if (mainCont) {
+              mainCont.innerHTML = "";
+            }
+
+            data.forEach((row) => {
+              const newRow = tableBody.insertRow();
+              newRow.innerHTML = `<td>${row.joborder_id}</td><td>${new Date(
+                row.date
+              ).toLocaleString()}</td><td>${row.customer_name}</td><td>${
+                row.address
+              }</td><td>${row.technical}</td><td></td><td></td><td>${
+                row.status
+              }</td>`;
+            });
+          })
+          .catch((error) => console.error(error));
+      }
+
+      function filterDate() {
+        document.getElementById("search").value = "";
+        var date1 = document.getElementById("dateStart").value;
+        var date2 = document.getElementById("dateEnd").value;
+        const startDate = new Date(date1);
+        const endDate = new Date(date2);
+
+        if (!date1 && !date2) {
+          document.getElementById("popup-warning-desc").innerHTML =
+            "Complete the Start and End Date!";
+          error.style.display = "block";
+          $("#main-wrapper").css("opacity", "0.5");
+          setTimeout(function () {
+            error.style.display = "none";
+            $("#main-wrapper").css("opacity", "1");
+          }, 2500);
+        } else if (startDate <= endDate) {
+          fetch("/getJOData")
+            .then((response) => response.json())
+            .then((data) => {
+              const tableBody = document.querySelector("#table-body");
+              tableBody.innerHTML = "";
+              const mainCont = document.querySelector("#main-container");
+              if (mainCont) {
+                mainCont.innerHTML = "";
+              }
+
+              data.forEach((row) => {
+                var dataDate = new Date(row.date);
+                var finaldataDate =
+                  dataDate.getMonth() +
+                  "/" +
+                  dataDate.getDate() +
+                  "/" +
+                  dataDate.getFullYear();
+                let loop = new Date(startDate);
+
+                while (loop <= endDate) {
+                  var finalLoop =
+                    loop.getMonth() +
+                    "/" +
+                    loop.getDate() +
+                    "/" +
+                    loop.getFullYear();
+
+                  if (finaldataDate == finalLoop) {
+                    const newRow = tableBody.insertRow();
+                    newRow.innerHTML = `<td>${row.joborder_id}</td><td>${row.date}</td><td>${row.customer_name}</td><td>${row.address}</td><td>${row.technical}</td><td></td><td></td><td>${row.status}</td>`;
+                    break;
+                  }
+                  let newDate = loop.setDate(loop.getDate() + 1);
+                  loop = new Date(newDate);
+                }
+              });
+              document.getElementById("tech").value = "";
+              document.getElementById("desiredRows").value = "";
+            })
+            .catch((error) => console.error(error));
+        } else {
+          errorcard.style.cssText = "border-left: 5px solid red";
+          erroricon.style.cssText = "color: red";
+          error.style.display = "block";
+          $("#main-wrapper").css("opacity", "0.5");
+          setTimeout(function () {
+            error.style.display = "none";
+            $("#main-wrapper").css("opacity", "1");
+          }, 2500);
+        }
+      }
+
+      const rowsPerPage = 5;
+      var currentPage = 0;
+
+      const searchField = document.getElementById("search");
+
+      searchField.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("searchBtn").click();
+        }
+      });
+
+      searchField.addEventListener("input", (event) => {
+        const inputValue = event.target.value;
+        if (inputValue === "") {
+          showPage(currentPage);
+        }
+      });
+
+      function searchData() {
+        currentPage = 0;
+        document.getElementById("dateStart").value = "";
+        document.getElementById("dateEnd").value = "";
+        var searchInput = document.getElementById("search").value;
+        const mainCont = document.getElementById("main-container");
+        if (mainCont) {
+          mainCont.remove();
+        }
+
+        if (searchInput != "") {
+          fetch("/getJOData")
+            .then((response) => response.json())
+            .then((data) => {
+              const tableBody = document.querySelector("#table-body");
+              tableBody.innerHTML = "";
+
+              var searched = false;
+
+              const startIndex = currentPage * rowsPerPage;
+              const endIndex = startIndex + rowsPerPage;
+              var rowCount = startIndex;
+              var index = 0;
+
+              data.forEach((row) => {
+                if (
+                  row.joborder_id.toLowerCase() === searchInput.toLowerCase() ||
+                  row.date.toLowerCase() === searchInput.toLowerCase() ||
+                  row.customer_name.toLowerCase() ===
+                    searchInput.toLowerCase() ||
+                  row.address.toLowerCase() === searchInput.toLowerCase() ||
+                  row.technical.toLowerCase() === searchInput.toLowerCase() ||
+                  row.status.toLowerCase() === searchInput.toLowerCase()
+                ) {
+                  console.log("Search: " + searchInput);
+                  if (index >= startIndex && index < endIndex) {
+                    console.log("Index: " + index);
+                    const newRow = tableBody.insertRow();
+
+                    newRow.innerHTML = `<td>${
+                      row.joborder_id
+                    }</td><td>${new Date(row.date).toLocaleString()}</td><td>${
+                      row.customer_name
+                    }</td><td>${row.address}</td><td>${
+                      row.technical
+                    }</td><td></td><td></td><td>${row.status}</td>`;
+                    searched = true;
+                    index++;
+                    rowCount++;
+                  }
+                }
+              });
+              document.getElementById("desiredRows").value = rowCount;
+
+              if (!searched) {
+                const mainContainer = document.createElement("div");
+                mainContainer.id = "main-container";
+                mainContainer.style.cssText =
+                  "margin-top: 50px; width: 100%; display: flex; align-items: center; justify-content: center";
+                const newContainer = document.createElement("div");
+                // newContainer.style.cssText = "background-color: red";
+
+                const newElem = document.createElement("h4");
+                // newElem.style.cssText = "width: 100%";
+                const newNode = document.createTextNode(
+                  "No results were found!"
+                );
+                // newElem.style.cssText = "font-size";
+                newElem.appendChild(newNode);
+                newContainer.appendChild(newElem);
+                mainContainer.appendChild(newContainer);
+
+                const tableMain = document.getElementById("contFluid");
+                tableMain.insertAdjacentElement("afterend", mainContainer);
+                // tableMain.appendChild(mainContainer);
+              } else {
+                document.getElementById("tech").value = "";
+                document.getElementById("desiredRows").value = "";
+              }
+            })
+            .catch((error) => console.error(error));
+        }
+      }
+
+      function filterTechnical() {
+        document.getElementById("search").value = "";
+        fetch("/getJOData")
+          .then((response) => response.json())
+          .then((data) => {
+            const tableBody = document.querySelector("#table-body");
+            tableBody.innerHTML = "";
+            const mainCont = document.querySelector("#main-container");
+            if (mainCont) {
+              mainCont.innerHTML = "";
+            }
+            var isFiltered = false;
+            data.forEach((row) => {
+              const newRow = tableBody.insertRow();
+              if (row.technical == document.getElementById("tech").value) {
+                newRow.innerHTML = `<td>${row.joborder_id}</td><td>${row.date}</td><td>${row.customer_name}</td><td>${row.address}</td><td>${row.technical}</td><td></td><td></td><td>${row.status}</td>`;
+                // Add more cells for additional columns as needed
+                isFiltered = true;
+              }
+            });
+
+            if (!isFiltered) {
+              // showTableData();
+              showPage(currentPage);
+            }
+            document.getElementById("desiredRows").value = "All";
+          })
+          .catch((error) => console.error(error));
+      }
+
+      function filterRows() {
+        document.getElementById("search").value = "";
+        document.getElementById("dateStart").value = "";
+        document.getElementById("dateEnd").value = "";
+
+        fetch("/getJOData")
+          .then((response) => response.json())
+          .then((data) => {
+            const tableBody = document.querySelector("#table-body");
+            tableBody.innerHTML = "";
+            const mainCont = document.querySelector("#main-container");
+            if (mainCont) {
+              mainCont.innerHTML = "";
+            }
+
+            const rowsPerPage = document.getElementById("desiredRows").value;
+            const currentPage = 1;
+
+            // if (rowsPerPage == "All") {
+            //   showTableData();
+            // } else {
+            const startIndex = (currentPage - 1) * rowsPerPage;
+            const endIndex = startIndex + rowsPerPage;
+            data.forEach((row, index) => {
+              if (index >= startIndex && index < endIndex) {
+                const newRow = tableBody.insertRow();
+
+                newRow.innerHTML = `<td>${row.joborder_id}</td><td>${row.date}</td><td>${row.customer_name}</td><td>${row.address}</td><td>${row.technical}</td><td></td><td></td><td>${row.status}</td>`;
+              }
+            });
+            // document.getElementById("tech").value = "";
+            // }
+          })
+          .catch((error) => console.error(error));
+      }
+
+      function showPage(page) {
+        document.getElementById("search").value = "";
+        document.getElementById("dateStart").value = "";
+        document.getElementById("dateEnd").value = "";
+        document.getElementById("desiredRows").value = "";
+
+        fetch("/getJOData")
+          .then((response) => response.json())
+          .then((data) => {
+            const tableBody = document.querySelector("#table-body");
+            tableBody.innerHTML = "";
+            const mainCont = document.querySelector("#main-container");
+            if (mainCont) {
+              mainCont.innerHTML = "";
+            }
+
+            const startIndex = page * rowsPerPage;
+            const endIndex = startIndex + rowsPerPage;
+            var rowCount = startIndex;
+
+            data.forEach((row, index) => {
+              if (index >= startIndex && index < endIndex) {
+                const newRow = tableBody.insertRow();
+
+                newRow.innerHTML = `<td>${row.joborder_id}</td><td>${new Date(
+                  row.date
+                ).toLocaleString()}</td><td>${row.customer_name}</td><td>${
+                  row.address
+                }</td><td>${row.technical}</td><td></td><td></td><td>${
+                  row.status
+                }</td>
+                <td class="th-action">
+                  <div class="nav-item dropdown">
+                    <i
+                      class="fas fa-ellipsis-v fa-lg"
+                      id="sideMenu"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    ></i>
+                    <div
+                      class="dropdown-menu user-dd animated"
+                      aria-labelledby="sideMenu"
+                    >
+                      <a class="dropdown-item" onclick="viewRowData(${
+                        row.customer_id
+                      })"
+                        ><i class="fas fa-eye"></i> View</a
+                      >
+                      <a class="dropdown-item" onclick="printRowData()"
+                        ><i class="fas fa-print"></i> Print</a
+                      >
+                    </div>
+                  </div>
+                </td>`;
+
+                rowCount++;
+              }
+
+              if (index == data.length + 1) {
+                document.getElementById("next").disabled = true;
+                document.getElementById("next").style.opacity = "50%";
+              }
+            });
+            document.getElementById("desiredRows").value = rowCount;
+          })
+          .catch((error) => console.error(error));
+      }
+
+      function previousPage() {
+        var a = document.getElementById("previous");
+        if (currentPage > 0 && currentPage != 1) {
+          a.disabled = false;
+          document.getElementById("next").disabled = false;
+          document.getElementById("next").style.opacity = "100%";
+          currentPage--;
+          showPage(currentPage);
+        } else if (currentPage == 1) {
+          a.disabled = true;
+          document.getElementById("next").disabled = false;
+          document.getElementById("next").style.opacity = "100%";
+          currentPage--;
+          showPage(currentPage);
+          document.getElementById("previous").style.opacity = "50%";
+        }
+        // else if (Math.ceil(data.length / rowsPerPage) == 0) {
+        //   document.getElementById("next").disabled = true;
+        //   document.getElementById("next").style.opacity = "50%";
+        // }
+      }
+
+      function nextPage() {
+        fetch("/getJOData")
+          .then((response) => response.json())
+          .then((data) => {
+            const tableBody = document.querySelector("#table-body");
+            tableBody.innerHTML = "";
+            const mainCont = document.querySelector("#main-container");
+            if (mainCont) {
+              mainCont.innerHTML = "";
+            }
+
+            // Calculate the total number of pages
+            var totalPages = Math.ceil(data.length / rowsPerPage);
+
+            if (currentPage < totalPages - 1) {
+              currentPage++;
+              showPage(currentPage);
+              if (currentPage == totalPages - 1) {
+                document.getElementById("next").disabled = true;
+                document.getElementById("next").style.opacity = "50%";
+              }
+            }
+            document.getElementById("previous").disabled = false;
+            document.getElementById("previous").style.opacity = "100%";
+          })
+          .catch((error) => console.error(error));
+      }
+
+      document.getElementById("previous").disabled = true;
+      document.getElementById("previous").style.opacity = "50%";
+      showPage(currentPage);
+
+      function resetData() {
+        document.getElementById("tech").value = "All";
+        document.getElementById("search").value = "";
+        document.getElementById("dateStart").value = 0;
+        document.getElementById("dateEnd").value = 0;
+        document.getElementById("desiredRows").value = "All";
+      }
+
+      function resetPage() {
+        location.reload();
+        // resetData();
+        // currentPage = 0;
+        // document.getElementById("previous").disabled = true;
+        // document.getElementById("previous").style.opacity = "50%";
+        // document.getElementById("next").disabled = false;
+        // document.getElementById("next").style.opacity = "100%";
+        // showPage(currentPage);
+      }
+
+      function logOut() {
+        logoutConfirm.style.display = "block";
+        $("#main-wrapper").css("opacity", "0.3");
+      }
+
+      function logOutAccount() {
+        logoutConfirm.style.display = "none";
+        loadingCircle.style.display = "block";
+
+        setTimeout(function () {
+          loadingCircle.style.display = "none";
+          success.style.display = "block";
+          setTimeout(function () {
+            location.href = "/logout";
+          }, 1000);
+        }, 2500);
+
+        success.style.display = "none";
+      }
+
+      fetch("/getUserLoggedInData")
+        .then((response) => response.json())
+        .then((data) => {
+          data.forEach((row) => {
+            var heading = document.getElementById("welcomeUsername");
+            heading.innerHTML = `Welcome, ${row.username}!`;
+          });
+        })
+        .catch((error) => console.error(error));
+
+      // navbarDropdown
+      function viewRowData(id) {
+        fetch("/getJOData")
+          .then((response) => response.json())
+          .then((data) => {
+            const search = document.querySelector("#search-div");
+            search.style.display = "none";
+
+            const bodycard = document.querySelector(".card-body");
+            bodycard.style.display = "none";
+
+            const backIcon = document.createElement("li");
+            backIcon.className = "fas fa-arrow-alt-circle-left";
+            backIcon.role = "button";
+            backIcon.setAttribute("id", "backButton");
+            backIcon.style.cssText = "font-size: 40px";
+
+            const card = document.querySelector(".card");
+            card.style.padding = "20px";
+            const newIcon = card.insertAdjacentElement("afterbegin", backIcon);
+
+            const newTable = document.createElement("table");
+            newTable.setAttribute("id", "table-new");
+            newTable.style.cssText = "border: none";
+
+            const newCardContent = document.querySelector("#view");
+
+            data.forEach((row) => {
+              if (id == row.customer_id) {
+                const newRow1 = newTable.insertRow();
+                const newRow2 = newTable.insertRow();
+                const newRow3 = newTable.insertRow();
+
+                newRow1.innerHTML = `<th>JOBORDERr_ID:</th><td>${
+                  row.joborder_id
+                }</td><th>DATE:</th><td>${new Date(
+                  row.date
+                ).toLocaleString()}</td>`;
+                newRow2.innerHTML = `<th>CUSTOMER NAME:</th><td>${row.customer_name}</td><th>ADDRESS:</th><td>${row.address}</td>`;
+                newRow3.innerHTML = `<th>TECHNICAL:</th><td>${row.technical}</td><th>STATUS:</th><td>${row.status}</td>`;
+
+                newCardContent.appendChild(newTable);
+                newCardContent.style.display = "block";
+              }
+            });
+
+            $("#backButton").click(function () {
+              search.style.display = "block";
+              bodycard.style.display = "block";
+              newCardContent.innerHTML = "";
+              newCardContent.style.display = "none";
+              $("#backButton").remove();
+              showPage(currentPage);
+            });
+          })
+          .catch((error) => console.error(error));
+      }
+
+      function printRowData() {
+        alert("Print!");
+      }
+    </script>
+  </body>
+</html>
